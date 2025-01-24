@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "next/legacy/image";
 import { WorkInfo } from "@/lib/types";
 import { formatWorkPeriod } from "@/lib/utils";
 import { AccordionContent } from "./accordion";
@@ -22,7 +22,6 @@ export default function WorkRow({
           <Image
             src={workInfo.companyLogoUrl}
             alt="Company logo"
-            layout="fill"
             className="rounded-lg shadow-lg shadow-slate-200 dark:shadow-black transition hover:scale-110 ease-in-out"
           />
         </div>

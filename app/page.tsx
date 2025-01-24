@@ -3,7 +3,7 @@ import { RetroGrid } from "@/components/ui/retro-grid";
 import { Button } from "@/components/ui/button";
 import NavbarDropdown from "@/components/ui/navbar-dropdown";
 import { cn } from "@/lib/utils";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import Link from "next/link";
 import { useState } from "react";
 import { FaGithub, FaLinkedinIn } from "react-icons/fa";
@@ -84,7 +84,6 @@ export default function Home() {
             <Image
               src={ProfilePic}
               alt="Profile picture"
-              fill
             />
           </div>
           {/* Bottom banner */}

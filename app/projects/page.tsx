@@ -98,7 +98,7 @@ export default function ProjectsPage() {
       projectLink: "https://github.com/faw01/vital-vision",
       description:
         "Vital Vision is a health-focused smartphone app developed for Kitahack 2023 that uses image processing (photoplethysmography) to detect the user's heart rate without the need for special equipment.",
-      tags: ["Flutter", "Dart", "Image Processing", "Hackathon"],
+      tags: ["Flutter", "Dart", "Image Processing"],
     },
     {
       projectName: "Monash Coding League",

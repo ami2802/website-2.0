@@ -38,7 +38,7 @@ export default function ProjectRow({
         {/* Company info */}
         <AccordionTrigger className="flex flex-col w-full text-start">
           <div className="flex flex-row gap-4 justify-between items-baseline w-full">
-            {projectInfo.projectLink ? (
+            {/* {projectInfo.projectLink ? (
               <Link
                 className="text-slate-700 dark:text-slate-200 font-semibold sm:text-lg transition ease-in-out hover:scale-110 hover:text-blue-500 dark:hover:text-blue-400"
                 href={projectInfo.projectLink || ""}
@@ -48,11 +48,11 @@ export default function ProjectRow({
               >
                 {projectInfo.projectName}
               </Link>
-            ) : (
-              <div className="text-slate-700 dark:text-slate-200 font-semibold sm:text-lg">
-                {projectInfo.projectName}
-              </div>
-            )}
+            ) : ( */}
+            <div className="text-slate-700 dark:text-slate-200 font-semibold sm:text-lg">
+              {projectInfo.projectName}
+            </div>
+            {/* )} */}
           </div>
           <div className="text-slate-500 dark:text-slate-400 text-sm sm:text-base">
             {projectInfo.projectCaption}

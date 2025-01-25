@@ -1,6 +1,5 @@
 import Navbar from "@/components/ui/Navbar";
 import { ProjectInfo } from "@/lib/types";
-import MonashLogo from "@/assets/monash_2.png";
 import ProjectRow from "@/components/ui/project-row";
 import { Accordion } from "@radix-ui/react-accordion";
 import {
@@ -30,7 +29,7 @@ export default function ProjectsPage() {
       projectLink: "https://github.com/steaminghotomelette/mPLUG-Owl-RAG",
       description:
         "A custom multimodal LLM tailored to answering medical and forensic questions with Retrieval Augmented Generation (RAG). Utilizes a fine-tuned variant of the mPLUG-Owl3 model with a hybrid retrieval mechanism. Supports RAG uploads via Gemini for contextualizing and summarizing documents. Built with Streamlit and Langchain.",
-      tags: ["Computer Vision",  "Langchain", "Machine Learning"],
+      tags: ["Computer Vision",  "Langchain", "Transformers"],
     },
     {
       projectName: "RxNet",
@@ -64,7 +63,7 @@ export default function ProjectsPage() {
       projectLink: "https://github.com/brightcosmo/DocGPT-2",
       description:
         "DocGPT is an AI-powered healthcare chatbot developed with Python and Streamlit. It offers functionalities like speech-to-text, image analysis, and personalized assistance in locating nearby clinics. It uses a large language model (LLM) to provide helpful and accurate medical information.",
-      tags: ["Python", "Streamlit", "LLM", "Speech-to-text", "Image Analysis"],
+      tags: ["Python", "LLMs", "Speech-to-text"],
     },
     {
       projectName: "Ren",

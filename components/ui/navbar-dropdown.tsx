@@ -41,7 +41,7 @@ export default function NavbarDropdown({
           <Link href="/projects">projects</Link>
         </DropdownMenuItem>
         <DropdownMenuItem asChild>
-          <Link href="/resume.pdf">resume</Link>
+          <Link href="/documents/resume.pdf">resume</Link>
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>

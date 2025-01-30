@@ -45,7 +45,7 @@ export default function ProjectsPage() {
       projectCaption: "Blockchain-powered prescription management tool.",
       projectLink: "https://github.com/brightcosmo/RxNet",
       description:
-        "RxNet is a prescription management tool built using React.js and Solana, designed to streamline prescription processes, improve transparency, and reduce fraud and drug abuse. The platform allows medical practitioners to issue, track, and validate prescriptions securely while providing a transparent system for patients and healthcare providers.",
+        "RxNet is a blockchain prescription management tool designed to streamline prescription processes, improve transparency, and reduce fraud. The platform allows medical practitioners to issue, track, and validate prescriptions securely while providing a transparent system for patients and healthcare providers.",
       tags: ["Solana", "Blockchain", "Web3", "Smart Contracts"],
     },
     {
@@ -62,7 +62,7 @@ export default function ProjectsPage() {
       projectCaption: "Multimodal LLM healthcare chatbot.",
       projectLink: "https://github.com/brightcosmo/DocGPT-2",
       description:
-        "DocGPT is an AI-powered healthcare chatbot developed with Python and Streamlit. It offers functionalities like speech-to-text, image analysis, and personalized assistance in locating nearby clinics. It uses a large language model (LLM) to provide helpful and accurate medical information.",
+        "DocGPT is an AI-powered healthcare chatbot developed with Python and Streamlit. It offers functionalities like speech-to-text, image analysis, and interfaces with Google Maps to locate nearby clinics.",
       tags: ["Python", "LLMs", "Speech-to-text"],
     },
     {
@@ -113,7 +113,7 @@ export default function ProjectsPage() {
       projectCaption: "University-wide competitive programming competition.",
       projectLink: "https://github.com/faw01/MCL",
       description:
-        "I placed 3rd in the Monash Coding League, a competitive programming contest with 100+ teams involving LeetCode-style problems. The competition was held over 3 weeks, with a final round of 10 problems. I was awarded a cash prize and certificate of achievement for my performance.",
+        "I placed 3rd in the Monash Coding League, a competitive programming contest with 100+ teams involving LeetCode-style problems. I was awarded a cash prize and certificate of achievement for my performance.",
       tags: ["Data Structures and Algorithms", "Python"],
     },
   ];

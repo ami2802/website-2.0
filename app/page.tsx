@@ -163,6 +163,8 @@ export default function Home() {
                   key={idx}
                   href={link.link}
                   className="text-slate-500 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-800 px-3 py-2 rounded-lg transition font-medium hover:scale-105"
+                  target={link.text === "resume" ? "_blank" : undefined}
+                  rel={link.text === "resume" ? "noopener noreferrer" : undefined}
                 >
                   {link.text}
                 </Link>

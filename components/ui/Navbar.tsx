@@ -64,6 +64,8 @@ export default function Navbar({ page }: { page: string }) {
               <BreadcrumbLink
                 href={`/resume.pdf`}
                 className="text-slate-600 dark:text-slate-300 hover:text-slate-400"
+                target={"_blank"}
+                rel={"noopener noreferrer"}
               >
                 resume
               </BreadcrumbLink>

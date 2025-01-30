@@ -110,10 +110,10 @@ export default function ProjectsPage() {
           <Trophy className="text-yellow-600 dark:text-yellow-400 text-4xl w-full h-full p-2 bg-yellow-100 dark:bg-yellow-950 rounded-lg shadow-lg shadow-slate-200 dark:shadow-black transition hover:scale-110 ease-in-out" />
         </Link>
       ),
-      projectCaption: "Univeristy-wide competitive programming competition.",
+      projectCaption: "University-wide competitive programming competition.",
       projectLink: "https://github.com/faw01/MCL",
       description:
-        "I placed 3rd in the Monash Coding League, a competitive programming contest involving 100+ teams. This contest sharpened my problem-solving and coding skills in a highly competitive environment.",
+        "I placed 3rd in the Monash Coding League, a competitive programming contest with 100+ teams involving LeetCode-style problems. The competition was held over 3 weeks, with a final round of 10 problems. I was awarded a cash prize and certificate of achievement for my performance.",
       tags: ["Data Structures and Algorithms", "Python"],
     },
   ];

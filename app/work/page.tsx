@@ -16,7 +16,7 @@ export default function WorkPage() {
       companyName: "Wavelet Solutions",
       companyLogoUrl: WaveletLogo,
       start_date: formatFromMMMYYYY("Jan 2024"),
-      end_date: formatFromMMMYYYY("Jun 2024"),
+      end_date: formatFromMMMYYYY("Dec 2024"),
       listDescription: [
         "Interned from January to July, and worked on a remote freelance basis from July to December.",
         "Built frontend features and resolved bugs in Flutter (mobile) and Angular + NGRX (web).",

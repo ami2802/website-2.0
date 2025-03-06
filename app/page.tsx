@@ -187,6 +187,7 @@ export default function Home() {
         </div>
       </div>
       <RetroGrid className="absolute inset-0 bg-gradient-to-t from-background to-transparent to-90%"/>
+      <Analytics />
     </main>
   );
 }

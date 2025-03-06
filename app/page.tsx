@@ -10,6 +10,7 @@ import { FaGithub, FaLinkedinIn } from "react-icons/fa";
 import { MdEmail, MdOutlineSpaceDashboard } from "react-icons/md";
 import ProfilePic from "@/assets/hk.jpg";
 import { TextAnimate } from "@/components/ui/text-animate"
+import { Analytics } from "@vercel/analytics/react";
 
 export default function Home() {
   const links = [

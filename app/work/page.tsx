@@ -5,12 +5,24 @@ import WaveletLogo from "@/assets/wavelet.jpeg";
 import MonashLogo from "@/assets/monash.webp";
 import SunwayLogo from "@/assets/sunway.jpg";
 import StAndrewsLogo from "@/assets/st-andrews.png";
+import TransPerfectLogo from "@/assets/transperfect.jpeg";
 import WorkRow from "@/components/ui/work-row";
 import { formatFromMMMYYYY } from "@/lib/utils";
 import { Accordion } from "@/components/ui/accordion";
 
 export default function WorkPage() {
   const workInfo: WorkInfo[] = [
+    {
+      role: "Machine Learning Engineer",
+      companyName: "TransPerfect",
+      companyLogoUrl: TransPerfectLogo,
+      start_date: formatFromMMMYYYY("Apr 2025"),
+      listDescription: [
+        "Created, categorized, audited, and improved lexical data for the Malay language.",
+        "Developed natural language processing code tailored to the Malay language.",
+      ],
+      tags: ["Natural Language Processing", "Machine Learning", "Swift", "Python", "Java", "Shell"]
+    },
     {
       role: "Software Engineer",
       companyName: "Wavelet Solutions",

@@ -8,8 +8,8 @@ export function cn(...inputs: ClassValue[]) {
 export function formatWorkPeriod(startDate: Date, endDate?: Date) {
   if (!endDate) {
     return formatToMMMYYYY(startDate) + " - present";
-  } else if (startDate.getFullYear() == endDate.getFullYear()) {
-    return formatToMMM(startDate) + " - " + formatToMMMYYYY(endDate);
+  // } else if (startDate.getFullYear() == endDate.getFullYear()) {
+  //   return formatToMMM(startDate) + " - " + formatToMMMYYYY(endDate);
   } else {
     return formatToMMMYYYY(startDate) + " - " + formatToMMMYYYY(endDate);
   }

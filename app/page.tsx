@@ -6,9 +6,9 @@ import { cn } from "@/lib/utils";
 import Image from "next/legacy/image";
 import Link from "next/link";
 import { useState } from "react";
-import { FaGithub, FaLinkedinIn } from "react-icons/fa";
+import { FaGithub, FaInstagram, FaLinkedinIn } from "react-icons/fa";
 import { MdEmail, MdOutlineSpaceDashboard } from "react-icons/md";
-import ProfilePic from "@/assets/hk.jpg";
+import ProfilePic from "@/assets/pfp2.jpeg";
 import { TextAnimate } from "@/components/ui/text-animate"
 import { Analytics } from "@vercel/analytics/react";
 
@@ -23,12 +23,14 @@ export default function Home() {
     "github": "https://github.com/brightcosmo",
     "linkedin": "https://www.linkedin.com/in/amirulazizol/",
     "email": "mailto:amirulazizol.dev@gmail.com",
+    "instagram": "https://www.instagram.com/amirul.4z/",
   }
 72
   const texts = {
     "name": "Amirul Azizol",
-    "title": "Monash CS Graduate",
-    "description": "Previously worked at Wavelet, Western Digital, and studied at Monash University. \nBuilder, researcher, innovator.",
+    "title": "ML Engineer @ TransPerfect",
+    // "description": "Prev. Wavelet SWE, Western Digital Intern.",
+    // "description2": "Monash University Alumni.",
   }
 
   const socialButtonStyle =
@@ -38,12 +40,16 @@ export default function Home() {
 
   const socials = [
     {
-      glyph: <FaGithub className={socialButtonStyle} />,
-      link: urls.github,
+      glyph: <FaInstagram className={socialButtonStyle} />,
+      link: urls.instagram,
     },
     {
       glyph: <FaLinkedinIn className={socialButtonStyle} />,
       link: urls.linkedin,
+    },
+    {
+      glyph: <FaGithub className={socialButtonStyle} />,
+      link: urls.github,
     },
     {
       glyph: <MdEmail className={socialButtonStyle} />,
@@ -52,6 +58,12 @@ export default function Home() {
   ];
 
   const mobileSocials = [
+    {
+      glyph: (
+        <MdEmail fontSize="1.75em" className={cn(mobileSocialIconStyle)} />
+      ),
+      link: urls.email,
+    },
     {
       glyph: (
         <FaGithub fontSize="1.75em" className={cn(mobileSocialIconStyle)} />
@@ -66,9 +78,9 @@ export default function Home() {
     },
     {
       glyph: (
-        <MdEmail fontSize="1.75em" className={cn(mobileSocialIconStyle)} />
+        <FaInstagram fontSize="1.75em" className={cn(mobileSocialIconStyle)} />
       ),
-      link: urls.email,
+      link: urls.instagram,
     },
   ];
 
@@ -131,8 +143,9 @@ export default function Home() {
           </div>
         </div>
       </div>
+
       {/* Web */}
-      <div className="hidden md:flex flex-col md:flex-row gap-6 lg:gap-10 max-w-4xl items-center lg:items-stretch rounded-xl relative z-10 bg-customGray">
+      <div className="hidden w-[48em] md:flex flex-col md:flex-row gap-6 lg:gap-10 max-w-4xl items-center lg:items-stretch rounded-xl relative z-10 bg-customGray">
         
         {/* Profile pic */}
         <div className="relative aspect-square md:h-[16em] lg:h-[16em] flex-shrink-0">
@@ -140,8 +153,7 @@ export default function Home() {
             src={ProfilePic}
             alt="Profile picture"
             className={cn(
-              "h-full rounded-xl shadow-xl transition ease-in-out hover:scale-110 duration-500 hover:cursor-pointer",
-              imageEffect && "animate-wiggle"
+              "h-full rounded-xl shadow-xl transition ease-in-out hover:scale-110 duration-500 hover:cursor-pointer"
             )}
             onClick={() => setImageEffect(true)}
             onAnimationEnd={() => setImageEffect(false)}
@@ -149,16 +161,18 @@ export default function Home() {
         </div>
 
         {/* Content */}
-        <div className="flex flex-col justify-between">
-          <div className="flex flex-col gap-2 lg:gap-5 w-full flex-1">
-            <div className="flex flex-col gap-1">
+        <div className="flex flex-col justify-between w-[40em]">
+          <div className="flex flex-col justify-center lg:gap-5 w-full flex-1">
+            {/* <div className="flex flex-col gap-1"> */}
                 <TextAnimate text={texts.name} type="whipIn" className="font-bold text-5xl lg:text-7xl text-slate-700 dark:text-slate-100 tracking-tight"/>
-                <TextAnimate text={texts.title} type="whipIn" delay={0.5} className="font-semibold text-xl lg:text-3xl text-slate-500 dark:text-slate-400 tracking-tight"/>
-                <TextAnimate text={texts.description} type="whipIn" delay={0.6} className="text-slate-600 dark:text-slate-400"/>
-            </div>
-          </div>
-          <div className="flex flex-row justify-between items-center gap-2 -ml-3">
-            <div className="flex flex-row gap-2 items-center">
+                <TextAnimate text={texts.title} type="whipIn" delay={0.5} className="font-semibold text-xl lg:text-3xl text-slate-500 dark:text-slate-400 mb-8 tracking-tight"/>
+            {/* </div>
+            <div className="text-slate-600 dark:text-slate-400">
+              <TextAnimate text={texts.description} type="whipIn" delay={0.6}/>
+              <TextAnimate text={texts.description2} type="whipIn" delay={0.6}/>
+            </div> */}
+            <div className="flex flex-row justify-between items-center gap-2 -ml-3">
+            <div className="flex flex-row gap-200 items-center">
               {links.map((link, idx) => (
                 <Link
                   key={idx}
@@ -171,7 +185,7 @@ export default function Home() {
                 </Link>
               ))}
             </div>
-            <div className="flex flex-row gap-2 items-center h-full w-full justify-end">
+            <div className="flex flex-row gap-2 items-center h-full w-full justify-center">
               {socials.map((social, idx) => (
                 <Link
                   target="_blank"
@@ -183,6 +197,7 @@ export default function Home() {
                 </Link>
               ))}
             </div>
+          </div>
           </div>
         </div>
       </div>

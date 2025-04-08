@@ -22,7 +22,7 @@ export default function WorkRow({
           <Image
             src={workInfo.companyLogoUrl}
             alt="Company logo"
-            className="rounded-lg shadow-lg shadow-slate-200 dark:shadow-black transition hover:scale-110 ease-in-out"
+            className="rounded-lg shadow-lg shadow-slate-200 dark:shadow-black transition"
           />
         </div>
         {/* Company info */}

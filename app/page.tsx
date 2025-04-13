@@ -3,7 +3,7 @@ import { RetroGrid } from "@/components/ui/retro-grid";
 import { Button } from "@/components/ui/button";
 import NavbarDropdown from "@/components/ui/navbar-dropdown";
 import { cn } from "@/lib/utils";
-import Image from "next/legacy/image";
+import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { FaGithub, FaInstagram, FaLinkedinIn } from "react-icons/fa";
@@ -87,9 +87,10 @@ export default function Home() {
   const [imageEffect, setImageEffect] = useState<boolean>(false);
 
   return (
-    <main className="flex min-h-screen flex-col justify-center items-center p-4 sm:p-24 bg-slate-100 dark:bg-midnight">
+    <main className="flex h-[100vh] flex-col justify-center items-center p-4 sm:p-24 bg-slate-100 dark:bg-midnight">
+    <div className="md:hidden absolute rounded-3xl shadow-2xl shadow-gray-400 dark:shadow-black w-full max-w-[26em] bg-white/80 dark:bg-slate-900/80 z-0" />
     {/* Mobile */}
-      <div className="md:hidden flex flex-col rounded-3xl shadow-2xl shadow-gray-400 dark:shadow-black overflow-hidden w-full max-w-[24em]">
+      <div className="md:hidden flex flex-col rounded-3xl shadow-2xl shadow-gray-400 dark:shadow-black overflow-hidden w-full max-w-[26em] z-10">
         {/* Image container */}
         <div className="relative w-full aspect-square z-0 bg-slate-100 dark:bg-midnight">
           {/* Profile pic */}
@@ -97,6 +98,8 @@ export default function Home() {
             <Image
               src={ProfilePic}
               alt="Profile picture"
+              fill
+              className="object-cover w-full h-full"
             />
           </div>
           {/* Bottom banner */}

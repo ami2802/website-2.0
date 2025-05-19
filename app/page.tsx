@@ -29,8 +29,7 @@ export default function Home() {
   const texts = {
     "name": "Amirul Azizol",
     "title": "ML Engineer @ TransPerfect",
-    // "description": "Prev. Wavelet SWE, Western Digital Intern.",
-    // "description2": "Monash University Alumni.",
+    "description": "Monash University Alumni",
   }
 
   const socialButtonStyle =
@@ -148,7 +147,7 @@ export default function Home() {
       </div>
 
       {/* Web */}
-      <div className="hidden w-[48em] md:flex flex-col md:flex-row gap-6 lg:gap-10 max-w-4xl items-center lg:items-stretch rounded-xl relative z-10 bg-customGray">
+      <div className="hidden w-[48em] md:flex flex-col md:flex-row gap-6 lg:gap-10 max-w-6xl items-center lg:items-stretch rounded-xl relative z-10 bg-customGray">
         
         {/* Profile pic */}
         <div className="relative aspect-square md:h-[16em] lg:h-[16em] flex-shrink-0">
@@ -166,14 +165,11 @@ export default function Home() {
         {/* Content */}
         <div className="flex flex-col justify-between w-[40em]">
           <div className="flex flex-col justify-center lg:gap-5 w-full flex-1">
-            {/* <div className="flex flex-col gap-1"> */}
+            <div className="flex flex-col gap-1">
                 <TextAnimate text={texts.name} type="whipIn" className="font-bold text-5xl lg:text-7xl text-slate-700 dark:text-slate-100 tracking-tight"/>
-                <TextAnimate text={texts.title} type="whipIn" delay={0.5} className="font-semibold text-xl lg:text-3xl text-slate-500 dark:text-slate-400 mb-8 tracking-tight"/>
-            {/* </div>
-            <div className="text-slate-600 dark:text-slate-400">
-              <TextAnimate text={texts.description} type="whipIn" delay={0.6}/>
-              <TextAnimate text={texts.description2} type="whipIn" delay={0.6}/>
-            </div> */}
+                <TextAnimate text={texts.title} type="whipIn" delay={0.5} className="font-semibold text-xl lg:text-3xl text-slate-500 dark:text-slate-400 tracking-tight"/>
+                <TextAnimate text={texts.description} type="whipIn" delay={0.6} className="font-semibold text-m lg:text-xl text-slate-500 dark:text-slate-500 tracking-tight"/>
+            </div>
             <div className="flex flex-row justify-between items-center gap-2 -ml-3">
             <div className="flex flex-row gap-200 items-center">
               {links.map((link, idx) => (

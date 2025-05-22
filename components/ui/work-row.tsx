@@ -1,6 +1,6 @@
 import Image from "next/legacy/image";
 import { WorkInfo } from "@/lib/types";
-import { formatWorkPeriod } from "@/lib/utils";
+import { formatWorkPeriod, monthsBetween } from "@/lib/utils";
 import { AccordionContent } from "./accordion";
 import { AccordionItem, AccordionTrigger } from "@radix-ui/react-accordion";
 
@@ -22,7 +22,7 @@ export default function WorkRow({
           <Image
             src={workInfo.companyLogoUrl}
             alt="Company logo"
-            className="rounded-lg shadow-lg shadow-slate-200 dark:shadow-black transition"
+            className="rounded transition"
           />
         </div>
         {/* Company info */}
@@ -37,14 +37,16 @@ export default function WorkRow({
               </div>
             )}
           </div>
-          <div className="text-slate-500 dark:text-slate-400 text-sm sm:text-base">
-            {workInfo.companyName}
-          </div>
-          {workInfo.start_date && (
-            <div className="sm:hidden flex flex-col gap-1 text-slate-500 dark:text-slate-400 text-xs">
-              {formatWorkPeriod(workInfo.start_date, workInfo.end_date)}
+          <div className="flex flex-row gap-4 justify-between items-baseline w-full">
+            <div className="text-slate-500 dark:text-slate-400 text-sm sm:text-base">
+              {workInfo.companyName}
             </div>
-          )}
+            {workInfo.start_date && (
+              <div className="hidden sm:flex flex-col gap-1 text-slate-500 dark:text-slate-400">
+                {monthsBetween(workInfo.start_date, workInfo.end_date)}
+              </div>
+            )}
+          </div>
         </AccordionTrigger>
       </div>
       {(workInfo.description || workInfo.listDescription || workInfo.tags) && (

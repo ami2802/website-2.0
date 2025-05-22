@@ -128,7 +128,7 @@ export default function ProjectsPage() {
             <div className="text-3xl font-bold text-slate-700 dark:text-slate-200">
               projects
               <div className="text-base	font-medium text-slate-500 dark:text-slate-400">
-                click row to see details, click icon to open link
+                old projects that i did during uni
               </div>
             </div>
             <Accordion type="multiple" className="flex flex-col gap-4">

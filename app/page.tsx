@@ -9,7 +9,6 @@ import { useState } from "react";
 import { FaGithub, FaInstagram, FaLinkedinIn } from "react-icons/fa";
 import { MdEmail, MdOutlineSpaceDashboard } from "react-icons/md";
 import ProfilePic from "@/assets/pfp2.jpeg";
-import { TextAnimate } from "@/components/ui/text-animate"
 import { Analytics } from "@vercel/analytics/react";
 
 export default function Home() {
@@ -28,8 +27,8 @@ export default function Home() {
 72
   const texts = {
     "name": "Amirul Azizol",
-    "title": "ML Engineer @ TransPerfect",
-    "description": "Monash University Alumni",
+    "title": "Machine Learning Engineer",
+    "description": "",
   }
 
   const socialButtonStyle =
@@ -166,9 +165,15 @@ export default function Home() {
         <div className="flex flex-col justify-between w-[40em]">
           <div className="flex flex-col justify-center lg:gap-5 w-full flex-1">
             <div className="flex flex-col gap-1">
-                <TextAnimate text={texts.name} type="whipIn" className="font-bold text-5xl lg:text-7xl text-slate-700 dark:text-slate-100 tracking-tight"/>
-                <TextAnimate text={texts.title} type="whipIn" delay={0.5} className="font-semibold text-xl lg:text-3xl text-slate-500 dark:text-slate-400 tracking-tight"/>
-                <TextAnimate text={texts.description} type="whipIn" delay={0.6} className="font-semibold text-m lg:text-xl text-slate-500 dark:text-slate-500 tracking-tight"/>
+              <h1 className="font-bold text-5xl lg:text-7xl text-slate-700 dark:text-slate-100 tracking-tight">
+                {texts.name}
+              </h1>
+              <h2 className="font-semibold text-xl lg:text-3xl text-slate-500 dark:text-slate-400 tracking-tight">
+                {texts.title}
+              </h2>
+              <p className="font-semibold text-m lg:text-xl text-slate-500 dark:text-slate-500 tracking-tight">
+                {texts.description}
+              </p>
             </div>
             <div className="flex flex-row justify-between items-center gap-2 -ml-3">
             <div className="flex flex-row gap-200 items-center">
@@ -200,7 +205,7 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <RetroGrid className="absolute inset-0 bg-gradient-to-t from-background to-transparent to-90%"/>
+      {/* <RetroGrid className="absolute inset-0 bg-gradient-to-t from-background to-transparent to-90%"/> */}
       <Analytics />
     </main>
   );

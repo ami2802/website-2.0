@@ -128,12 +128,22 @@ export default function ProjectsPage() {
             <div className="text-3xl font-bold text-slate-700 dark:text-slate-200">
               projects
               <div className="text-base	font-medium text-slate-500 dark:text-slate-400">
-                old projects that i did during uni
+                old uni/hackathon projects
               </div>
             </div>
             <Accordion type="multiple" className="flex flex-col gap-4">
               {projects.map((project, idx) => (
-                <ProjectRow key={idx} idx={idx} projectInfo={project} />
+                <div
+                  key={idx}
+                  className={idx === 0 ? "mb-5 bg-white dark:bg-slate-900 p-4 rounded-xl" : ""}
+                >
+                  {idx === 0 && (
+                    <div className="text-base font-medium text-slate-500 dark:text-slate-400 mb-2">
+                      final year project
+                    </div>
+                  )}
+                  <ProjectRow projectInfo={project} idx={idx} />
+                </div>
               ))}
             </Accordion>
           </div>

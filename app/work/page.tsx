@@ -5,7 +5,6 @@ import WaveletLogo from "@/assets/wavelet.jpeg";
 import MonashLogo from "@/assets/monash.webp";
 import MonashWarwickLogo from "@/assets/monashwarwick.jpg";
 import SunwayLogo from "@/assets/sunway.jpg";
-import StAndrewsLogo from "@/assets/st-andrews.png";
 import TransPerfectLogo from "@/assets/transperfect.jpeg";
 import WorkRow from "@/components/ui/work-row";
 import { formatFromMMMYYYY } from "@/lib/utils";
@@ -19,8 +18,10 @@ export default function WorkPage() {
       companyLogoUrl: TransPerfectLogo,
       start_date: formatFromMMMYYYY("Apr 2025"),
       listDescription: [
-        "Categorized, audited, and optimized lexical data for the Malay language.",
-        "Developed and trained natural language processing models tailored to the Malay language."
+        "Served as a vendor language engineer, focusing on multilingual voice assistant features, bugfixes, and R&D.",
+        "Fine-tuned model inputs to support Malay/Indonesian, improving understanding accuracy by 25%.",
+        "Automated data preprocessing and error analysis pipelines using Python, reducing noise in utterances by 35%.",
+        "Improved data pipelines on localized datasets for developing agentic and LLM-driven voice assistant features."
       ],
       tags: ["Natural Language Processing", "Machine Learning", "Swift", "Python", "Java", "Shell"]
     },
@@ -31,7 +32,7 @@ export default function WorkPage() {
       start_date: formatFromMMMYYYY("Jan 2023"),
       end_date: formatFromMMMYYYY("Dec 2024"),
       listDescription: [
-        "TA and marker for FIT2014 (Theory of Computation) in 2024 and FIT1045 (Intro to Programming) in 2023."
+        "TA and marker for FIT2014 (Theory of Computation) and FIT1045 (Intro to Programming)."
       ],
     },
     {
@@ -42,9 +43,7 @@ export default function WorkPage() {
       end_date: formatFromMMMYYYY("Jul 2024"),
       listDescription: [
         "Led a global, cross-functional team of students to improve technical infrastructure for a local tutoring company.",
-        "Built a learning management system prototype, a redesigned website UI, and an automatic e-invoicing tool."
       ],
-      tags: ["React.js", "Pandas", "Figma"]
     },    
     {
       role: "Software Engineer Intern",

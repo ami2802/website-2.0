@@ -1,8 +1,11 @@
+"use client";
+
 import Image from "next/legacy/image";
 import { WorkInfo } from "@/lib/types";
 import { formatWorkPeriod, monthsBetween } from "@/lib/utils";
 import { AccordionContent } from "./accordion";
 import { AccordionItem, AccordionTrigger } from "@radix-ui/react-accordion";
+import { useEffect, useState } from "react";
 
 export default function WorkRow({
   idx,
@@ -11,6 +14,14 @@ export default function WorkRow({
   idx: number;
   workInfo: WorkInfo;
 }) {
+  const [duration, setDuration] = useState("");
+
+  useEffect(() => {
+    if (workInfo.start_date) {
+      setDuration(monthsBetween(new Date(workInfo.start_date), workInfo.end_date ? new Date(workInfo.end_date) : undefined));
+    }
+  }, [workInfo.start_date, workInfo.end_date]);
+
   return (
     <AccordionItem
       value={"work-" + idx.toString()}
@@ -43,7 +54,7 @@ export default function WorkRow({
             </div>
             {workInfo.start_date && (
               <div className="hidden sm:flex flex-col gap-1 text-slate-500 dark:text-slate-400">
-                {monthsBetween(workInfo.start_date, workInfo.end_date)}
+                {duration}
               </div>
             )}
           </div>

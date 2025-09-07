@@ -190,7 +190,7 @@ export default function GymPage() {
   if (!loggedIn)
     return (
       <div style={{ padding: 20, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-        <h2 style={{ marginBottom: 16 }}>Gym Editor</h2>
+        <h2 style={{ marginBottom: 12, fontSize: 18 }}>{`${dayLabel} - ${muscleGroup}`}</h2>
         {error && <p style={{ color: 'red', marginBottom: 8 }}>{error}</p>}
         <input
           type="password"
@@ -231,13 +231,14 @@ export default function GymPage() {
   }
 
   const inputStyle = {
-    width: 80,
-    padding: 8,
+    width: 60,
+    padding: 6,
     borderRadius: 6,
     border: '1px solid #ccc',
     textAlign: 'center' as const,
     boxSizing: 'border-box' as const,
     marginRight: 8,
+    fontSize: 14
   }
 
   return (
@@ -267,7 +268,7 @@ export default function GymPage() {
                 color: ex.superset ? 'white' : 'inherit',
               }}
             >
-            <div style={{ flex: 2, ...cellStyle }}>{ex.name}</div>
+            <div style={{ flex: 2, ...cellStyle, fontSize: 14 }}>{ex.name}</div>
             <input
               type="number"
               value={ex.weight}
@@ -280,7 +281,17 @@ export default function GymPage() {
               onChange={e => handleChangeReps(i, e.target.value)}
               style={inputStyle}
             />
-            <div style={{ flex: 1, marginLeft: 12, ...cellStyle }}>{ex.target}</div>
+            <div
+              style={{
+                flex: 1,
+                marginLeft: 12,
+                ...cellStyle,
+                fontSize: 14,
+                textAlign: 'center'
+              }}
+            >
+              {ex.target}
+            </div>
           </div>
         ))}
       </div>

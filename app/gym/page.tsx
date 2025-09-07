@@ -121,16 +121,17 @@ export default function GymPage() {
     setError('')
     setSuccess('')
 
-    let md = `## ${muscleGroup} Day (${dayLabel})\n\n`
-    exercises.forEach(ex => {
-      md += `### ${ex.name}${ex.superset ? ` <!-- ${ex.superset} -->` : ''}\n- 3x${ex.reps} @ ${ex.weight}kg\n- Target: ${ex.target}\n\n`
-    })
+    const updates = exercises.map(ex => ({
+      name: ex.name,
+      reps: ex.reps,
+      weight: ex.weight
+    }))
 
     try {
       const res = await fetch('/api/update', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ password, updatedMd: md })
+        body: JSON.stringify({ password, updates })
       })
       const data = await res.json()
       if (data.success) setSuccess('Saved successfully!')
@@ -190,7 +191,7 @@ export default function GymPage() {
   if (!loggedIn)
     return (
       <div style={{ padding: 20, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-        <h2 style={{ marginBottom: 12, fontSize: 18 }}>{`${dayLabel} - ${muscleGroup}`}</h2>
+        <h2 style={{ marginBottom: 12, fontSize: 18 }}>Enter password</h2>
         {error && <p style={{ color: 'red', marginBottom: 8 }}>{error}</p>}
         <input
           type="password"

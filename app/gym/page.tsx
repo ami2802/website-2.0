@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 
 type Exercise = {
   name: string
@@ -44,7 +44,7 @@ export default function GymPage() {
     'superset C': '#1e429f',
   }
 
-  const fetchMd = async () => {
+  const fetchMd = useCallback(async (): Promise<void> => {
     try {
       const res = await fetch('/api/get')
       const data = await res.json()
@@ -59,11 +59,11 @@ export default function GymPage() {
       setMuscleGroup(group)
       setDayLabel(today)
 
-      const sections = md.split('\n## ').map(s => s.replace(/^## /, ''))
+      const sections: string[] = md.split('\n## ').map((s: string) => s.replace(/^## /, ''))
       const todaySection = sections.find(s => s.toLowerCase().includes(group.toLowerCase()))
       if (!todaySection) {
         setExercises([])
-        setError(`No workout scheduled for today (${dayLabel})`)
+        setError(`No workout scheduled for today (${today})`)
         return
       }
 
@@ -89,11 +89,11 @@ export default function GymPage() {
       console.error(err)
       setError('Failed to fetch or parse md')
     }
-  }
+  }, [])
 
   useEffect(() => {
     if (loggedIn) fetchMd()
-  }, [loggedIn])
+  }, [loggedIn, fetchMd])
 
   const handleLogin = () => {
     if (!password) {
@@ -148,7 +148,7 @@ export default function GymPage() {
       if (!data.content) return
 
       const md = data.content
-      const sections = md.split('\n## ').map(s => s.replace(/^## /, ''))
+      const sections: string[] = md.split('\n## ').map((s: string) => s.replace(/^## /, ''))
 
       const parsedAll: {day: string, group: string, exercises: Exercise[]}[] = []
 

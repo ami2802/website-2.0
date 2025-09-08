@@ -4,6 +4,7 @@ import { useState, useEffect, useCallback } from 'react'
 
 type Exercise = {
   name: string
+  abbreviation?: string
   superset?: string
   weight: number
   reps: string
@@ -44,10 +45,17 @@ export default function GymPage() {
     'superset C': '#1e429f',
   }
 
+  const exerciseMap: Record<string, string> = {
+    'Tricep extension': 'Tricep ext.',
+    'Leg extension': 'Leg ext.',
+    'Romanian deadlift': 'Romanian DL',
+  }
+
   const fetchMd = useCallback(async (): Promise<void> => {
     try {
       const res = await fetch('/api/get')
       const data = await res.json()
+      console.log('data', data)
       if (!data.content) {
         setError('Failed to load file')
         return
@@ -70,12 +78,14 @@ export default function GymPage() {
       const exerciseMatches = todaySection.matchAll(
         /### (.+?)(?:\s*<!--\s*(superset [A-Z])\s*-->)?\n(?:#### .+\n)?- (\d+)x(\d+) @ (\d+(?:\.\d+)?)kg\n- Target: ([\d–]+)/g
       )
-
+      console.log('exerciseMatches', Array.from(exerciseMatches))
       const parsedExercises: Exercise[] = []
       for (const match of exerciseMatches) {
-        const [, name, superset, sets, reps, weightStr, target] = match
+        const [, name, superset, , reps, weightStr, target] = match
+        const cleanName = name.trim()
         parsedExercises.push({
-          name: name.trim(),
+          name: cleanName,
+          abbreviation: exerciseMap[cleanName] ?? cleanName,
           superset: superset ? superset.trim() : '',
           reps: reps.trim(),
           weight: parseFloat(weightStr),
@@ -157,7 +167,7 @@ export default function GymPage() {
         const groupMatch = section.match(/^(Push|Pull|Leg)/i)
         if (!groupMatch) return
         const group = groupMatch[1]
-        if (group === muscleGroup) return // skip today’s group
+        if (group === muscleGroup) return
 
         const dayMatch = section.match(/\((.*?)\)/)
         const day = dayMatch ? dayMatch[1] : 'Unknown'
@@ -168,9 +178,11 @@ export default function GymPage() {
 
         const exercisesArr: Exercise[] = []
         for (const match of exerciseMatches) {
-          const [, name, superset, sets, reps, weightStr, target] = match
+          const [, name, superset, , reps, weightStr, target] = match
+          const cleanName = name.trim()
           exercisesArr.push({
-            name: name.trim(),
+            name: cleanName,
+            abbreviation: exerciseMap[cleanName] ?? cleanName,
             superset: superset ? superset.trim() : '',
             reps: reps.trim(),
             weight: parseFloat(weightStr),
@@ -232,13 +244,12 @@ export default function GymPage() {
   }
 
   const inputStyle = {
-    width: 60,
+    width: '100%',
     padding: 6,
     borderRadius: 6,
     border: '1px solid #ccc',
     textAlign: 'center' as const,
     boxSizing: 'border-box' as const,
-    marginRight: 8,
     fontSize: 14
   }
 
@@ -250,10 +261,10 @@ export default function GymPage() {
 
       <div style={{ width: '100%', maxWidth: 700 }}>
         <div style={{ display: 'flex', fontWeight: 'bold', marginBottom: 8 }}>
-          <div style={{ flex: 2, ...cellStyle }}>Exercise</div>
+          <div style={{ flex: 3, ...cellStyle }}>Exercise</div>
           <div style={{ width: 80, textAlign: 'center', ...cellStyle }}>Weight</div>
           <div style={{ width: 80, textAlign: 'center', ...cellStyle }}>Reps</div>
-          <div style={{ flex: 1, marginLeft: 12, ...cellStyle }}>Target</div>
+          <div style={{ width: 80, textAlign: 'center', ...cellStyle }}>Target</div>
         </div>
 
         {exercises.map((ex, i) => (
@@ -269,23 +280,28 @@ export default function GymPage() {
                 color: ex.superset ? 'white' : 'inherit',
               }}
             >
-            <div style={{ flex: 2, ...cellStyle, fontSize: 14 }}>{ex.name}</div>
-            <input
-              type="number"
-              value={ex.weight}
-              onChange={e => handleChangeWeight(i, e.target.value)}
-              style={inputStyle}
-            />
-            <input
-              type="text"
-              value={ex.reps}
-              onChange={e => handleChangeReps(i, e.target.value)}
-              style={inputStyle}
-            />
+            <div style={{ flex: 2, ...cellStyle, fontSize: 14 }}>
+              {ex.abbreviation}
+            </div>
+            <div style={{ width: 80, ...cellStyle }}>
+              <input
+                type="number"
+                value={ex.weight}
+                onChange={e => handleChangeWeight(i, e.target.value)}
+                style={inputStyle}
+              />
+            </div>
+            <div style={{ width: 80, ...cellStyle }}>
+              <input
+                type="text"
+                value={ex.reps}
+                onChange={e => handleChangeReps(i, e.target.value)}
+                style={inputStyle}
+              />
+            </div>
             <div
               style={{
-                flex: 1,
-                marginLeft: 12,
+                width: 80,
                 ...cellStyle,
                 fontSize: 14,
                 textAlign: 'center'
@@ -332,38 +348,38 @@ export default function GymPage() {
         Show Other Days
       </button>
 
-      {showAll && allExercises.map((section, i) => (
-        <div key={i} style={{ marginTop: 24, width: '100%', maxWidth: 700 }}>
-          <h3 style={{ marginBottom: 8 }}>{`${section.day} - ${section.group}`}</h3>
+        {showAll && allExercises.map((section, i) => (
+          <div key={i} style={{ marginTop: 32, width: '100%', maxWidth: 700 }}>
+            <h3 style={{ marginBottom: 8 }}>{`${section.day} - ${section.group}`}</h3>
 
-          <div style={{ display: 'flex', fontWeight: 'bold', marginBottom: 8 }}>
-            <div style={{ flex: 2, ...cellStyle }}>Exercise</div>
-            <div style={{ width: 80, textAlign: 'center', ...cellStyle }}>Weight</div>
-            <div style={{ width: 80, textAlign: 'center', ...cellStyle }}>Reps</div>
-            <div style={{ flex: 1, marginLeft: 12, ...cellStyle }}>Target</div>
-          </div>
-
-          {section.exercises.map((ex, j) => (
-            <div
-              key={j}
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                marginBottom: 12,
-                padding: 4,
-                borderRadius: 6,
-                backgroundColor: ex.superset ? supersetColors[ex.superset] : 'transparent',
-                color: ex.superset ? 'white' : 'inherit',
-              }}
-            >
-              <div style={{ flex: 2, ...cellStyle }}>{ex.name}</div>
-              <div style={{ width: 80, textAlign: 'center', ...cellStyle }}>{ex.weight}</div>
-              <div style={{ width: 80, textAlign: 'center', ...cellStyle }}>{ex.reps}</div>
-              <div style={{ flex: 1, marginLeft: 12, ...cellStyle }}>{ex.target}</div>
+            <div style={{ display: 'flex', fontWeight: 'bold', marginBottom: 8 }}>
+              <div style={{ width: 180, ...cellStyle }}>Exercise</div>
+              <div style={{ width: 80, textAlign: 'center', ...cellStyle }}>Weight</div>
+              <div style={{ width: 80, textAlign: 'center', ...cellStyle }}>Reps</div>
+              <div style={{ width: 80, textAlign: 'center', ...cellStyle }}>Target</div>
             </div>
-          ))}
-        </div>
-      ))}
-    </div>
+
+            {section.exercises.map((ex, j) => (
+              <div
+                key={j}
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  marginBottom: 12,
+                  padding: 4,
+                  borderRadius: 6,
+                  backgroundColor: ex.superset ? supersetColors[ex.superset] : 'transparent',
+                  color: ex.superset ? 'white' : 'inherit',
+                }}
+              >
+                <div style={{ width: 180, ...cellStyle }}>{ex.abbreviation}</div>
+                <div style={{ width: 80, textAlign: 'center', ...cellStyle }}>{ex.weight}</div>
+                <div style={{ width: 80, textAlign: 'center', ...cellStyle }}>{ex.reps}</div>
+                <div style={{ width: 80, textAlign: 'center', ...cellStyle }}>{ex.target}</div>
+              </div>
+            ))}
+          </div>
+        ))}
+      </div>
   )
 }

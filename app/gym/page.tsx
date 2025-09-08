@@ -55,7 +55,6 @@ export default function GymPage() {
     try {
       const res = await fetch('/api/get')
       const data = await res.json()
-      console.log('data', data)
       if (!data.content) {
         setError('Failed to load file')
         return
@@ -78,7 +77,6 @@ export default function GymPage() {
       const exerciseMatches = todaySection.matchAll(
         /### (.+?)(?:\s*<!--\s*(superset [A-Z])\s*-->)?\n(?:#### .+\n)?- (\d+)x(\d+) @ (\d+(?:\.\d+)?)kg\n- Target: ([\d–]+)/g
       )
-      console.log('exerciseMatches', Array.from(exerciseMatches))
       const parsedExercises: Exercise[] = []
       for (const match of exerciseMatches) {
         const [, name, superset, , reps, weightStr, target] = match
@@ -353,7 +351,7 @@ export default function GymPage() {
             <h3 style={{ marginBottom: 8 }}>{`${section.day} - ${section.group}`}</h3>
 
             <div style={{ display: 'flex', fontWeight: 'bold', marginBottom: 8 }}>
-              <div style={{ width: 180, ...cellStyle }}>Exercise</div>
+              <div style={{ flex: 2, ...cellStyle }}>Exercise</div>
               <div style={{ width: 80, textAlign: 'center', ...cellStyle }}>Weight</div>
               <div style={{ width: 80, textAlign: 'center', ...cellStyle }}>Reps</div>
               <div style={{ width: 80, textAlign: 'center', ...cellStyle }}>Target</div>
@@ -372,7 +370,7 @@ export default function GymPage() {
                   color: ex.superset ? 'white' : 'inherit',
                 }}
               >
-                <div style={{ width: 180, ...cellStyle }}>{ex.abbreviation}</div>
+                <div style={{ flex: 2, ...cellStyle }}>{ex.abbreviation}</div>
                 <div style={{ width: 80, textAlign: 'center', ...cellStyle }}>{ex.weight}</div>
                 <div style={{ width: 80, textAlign: 'center', ...cellStyle }}>{ex.reps}</div>
                 <div style={{ width: 80, textAlign: 'center', ...cellStyle }}>{ex.target}</div>

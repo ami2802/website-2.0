@@ -13,7 +13,8 @@ export async function GET(req: NextRequest) {
         Authorization: `Bearer ${token}`,
         Accept: 'application/vnd.github.object',
         'X-GitHub-Api-Version': '2022-11-28'
-      }
+      },
+      cache: 'no-store'
     }
   )
 

@@ -10,7 +10,6 @@ export async function POST(req: NextRequest) {
   try {
     const body = await req.json()
     const { password, updates } = body as { password: string; updates: ExerciseUpdate[] }
-    console.log('updates', updates)
 
     if (password !== process.env.ADMIN_PASSWORD)
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
@@ -19,7 +18,7 @@ export async function POST(req: NextRequest) {
     const owner = process.env.GITHUB_OWNER
     const repo = process.env.GITHUB_REPO
     const path = process.env.MD_PATH
-    const commitMsg = `Updated ${process.env.COMMIT_MSG || 'progress.md'}`
+    const commitMsg = `Automated update - ${new Date().toISOString()}`
 
     const getRes = await fetch(`https://api.github.com/repos/${owner}/${repo}/contents/${path}`, {
       headers: {
@@ -38,15 +37,24 @@ export async function POST(req: NextRequest) {
     const content: string = Buffer.from(fileData.content, 'base64').toString('utf-8')
 
     let updatedContent = content
+    let anyChange = false
 
     updates.forEach(update => {
       const exName = update.name.replace(/[-/\\^$*+?.()|[\]{}]/g, '\\$&')
       const regex = new RegExp(
-        `(### ${exName}\\n)- 3x\\d+ @ \\d+(?:\\.\\d+)?kg`,
+        `(### ${exName}(?:\\s*<!--.*?-->)?\\n)- \\d+x\\d+ @ \\d+(?:\\.\\d+)?kg`,
         'g'
       )
-      updatedContent = updatedContent.replace(regex, `$1- 3x${update.reps} @ ${update.weight}kg`)
+
+      updatedContent = updatedContent.replace(regex, match => {
+        anyChange = true
+        return match.replace(/- \d+x\d+ @ \d+(?:\.\d+)?kg/, `- ${update.reps}x${update.reps} @ ${update.weight}kg`)
+      })
     })
+
+    if (!anyChange) {
+      return NextResponse.json({ error: 'No changes detected, commit skipped' }, { status: 400 })
+    }
 
     const updateRes = await fetch(`https://api.github.com/repos/${owner}/${repo}/contents/${path}`, {
       method: 'PUT',

@@ -24,6 +24,14 @@ export default function GymPage() {
 	const [allExercises, setAllExercises] = useState<
 		{ day: string; group: string; exercises: Exercise[] }[]
 	>([]);
+	const [isMobile, setIsMobile] = useState(false);
+
+	useEffect(() => {
+		const checkMobile = () => setIsMobile(window.innerWidth <= 768);
+		checkMobile();
+		window.addEventListener("resize", checkMobile);
+		return () => window.removeEventListener("resize", checkMobile);
+	}, []);
 
 	const dayToGroup = (day: string) => {
 		switch (day) {
@@ -46,16 +54,30 @@ export default function GymPage() {
 		"superset B": "#153243",
 		"superset C": "#1e429f",
 	};
+	const getColorsForSection = (group: string, exercises: Exercise[]) => {
+		if (group === "Push" || exercises.some((ex) => !ex.superset)) {
+			return {
+				default: "#284B63",
+				"superset A": "#153243",
+				"superset B": "#1e429f",
+			};
+		}
+		return supersetColors;
+	};
+
+	const colors = getColorsForSection(muscleGroup, exercises);
 
 	const exerciseMap: Record<string, string> = {
 		"Tricep extension": "Tricep ext.",
 		"Leg extension": "Leg ext.",
 		"Romanian deadlift": "Romanian DL",
+		"Lateral pulldown": "Lat pulldown",
+		"Wrist extension": "Wrist ext.",
 	};
 
 	const fetchMd = useCallback(async (): Promise<void> => {
 		try {
-			const res = await fetch('/api/get', { cache: 'no-store' });
+			const res = await fetch("/api/get", { cache: "no-store" });
 			const data = await res.json();
 			if (!data.content) {
 				setError("Failed to load file");
@@ -120,7 +142,7 @@ export default function GymPage() {
 
 	const handleChangeWeight = (index: number, value: string) => {
 		const copy = [...exercises];
-		copy[index].weight = parseFloat(value) || 0;
+		copy[index].weight = value;
 		setExercises(copy);
 	};
 
@@ -128,6 +150,16 @@ export default function GymPage() {
 		const copy = [...exercises];
 		copy[index].reps = value;
 		setExercises(copy);
+	};
+
+	const headerStyle = {
+		display: "flex",
+		fontWeight: "bold",
+		marginBottom: 8,
+		padding: 6,
+		borderRadius: 6,
+		backgroundColor: "#0070f3", // nice strong blue
+		color: "white",
 	};
 
 	const handleSave = async () => {
@@ -192,7 +224,7 @@ export default function GymPage() {
 						abbreviation: exerciseMap[cleanName] ?? cleanName,
 						superset: superset ? superset.trim() : "",
 						reps: reps.trim(),
-						weight: parseFloat(weightStr),
+						weight: weightStr.trim(),
 						target: target.trim(),
 					});
 				}
@@ -217,7 +249,9 @@ export default function GymPage() {
 					alignItems: "center",
 				}}
 			>
-				<h2 style={{ marginBottom: 12, fontSize: 18 }}>Enter password</h2>
+				<h2 style={{ marginBottom: 12, fontSize: 24, fontWeight: "bold" }}>
+					Enter password
+				</h2>
 				{error && <p style={{ color: "red", marginBottom: 8 }}>{error}</p>}
 				<input
 					type="password"
@@ -277,158 +311,181 @@ export default function GymPage() {
 				width: "100%",
 			}}
 		>
-			<h2 style={{ marginBottom: 12 }}>{`${dayLabel} - ${muscleGroup} Day`}</h2>
+			{dayLabel && muscleGroup && (
+				<h2 style={{ marginBottom: 12, fontSize: 24, fontWeight: "bold" }}>
+					{`${dayLabel} - ${muscleGroup} Day`}
+				</h2>
+			)}
 			{error && <p style={{ color: "red", marginBottom: 8 }}>{error}</p>}
 			{success && <p style={{ color: "green", marginBottom: 8 }}>{success}</p>}
 
-			<div style={{ width: "100%", maxWidth: 700 }}>
-				<div style={{ display: "flex", fontWeight: "bold", marginBottom: 8 }}>
-					<div style={{ flex: 3, ...cellStyle }}>Exercise</div>
-					<div style={{ width: 80, textAlign: "center", ...cellStyle }}>
-						Weight
+			{exercises.length > 0 && (
+				<div style={{ width: "100%", maxWidth: 700 }}>
+					<div style={{ display: "flex", fontWeight: "bold", marginBottom: 8 }}>
+						<div style={{ flex: 3, ...cellStyle }}>Exercise</div>
+						<div style={{ width: 80, textAlign: "center", ...cellStyle }}>
+							Weight
+						</div>
+						<div style={{ width: 80, textAlign: "center", ...cellStyle }}>
+							Reps
+						</div>
+						<div style={{ width: 80, textAlign: "center", ...cellStyle }}>
+							Target
+						</div>
 					</div>
-					<div style={{ width: 80, textAlign: "center", ...cellStyle }}>
-						Reps
-					</div>
-					<div style={{ width: 80, textAlign: "center", ...cellStyle }}>
-						Target
-					</div>
-				</div>
 
-				{exercises.map((ex, i) => (
-					<div
-						key={i}
-						style={{
-							display: "flex",
-							alignItems: "center",
-							marginBottom: 12,
-							padding: 4,
-							borderRadius: 6,
-							backgroundColor: ex.superset
-								? supersetColors[ex.superset]
-								: "transparent",
-							color: ex.superset ? "white" : "inherit",
-						}}
-					>
-						<div style={{ flex: 2, ...cellStyle, fontSize: 14 }}>
-							{ex.abbreviation}
-						</div>
-						<div style={{ width: 80, ...cellStyle }}>
-							<input
-								type="text"
-								value={ex.weight}
-								onChange={(e) => handleChangeWeight(i, e.target.value)}
-								style={inputStyle}
-							/>
-						</div>
-						<div style={{ width: 80, ...cellStyle }}>
-							<input
-								type="text"
-								value={ex.reps}
-								onChange={(e) => handleChangeReps(i, e.target.value)}
-								style={inputStyle}
-							/>
-						</div>
+					{exercises.map((ex, i) => (
 						<div
+							key={i}
 							style={{
-								width: 80,
-								...cellStyle,
-								fontSize: 14,
-								textAlign: "center",
+								display: "flex",
+								alignItems: "center",
+								marginBottom: 12,
+								padding: 4,
+								borderRadius: 6,
+								backgroundColor:
+									colors[ex.superset ?? ""] ??
+									colors["default"] ??
+									"transparent",
+								color: ex.superset ? "white" : "inherit",
 							}}
 						>
-							{ex.target}
-						</div>
-					</div>
-				))}
-			</div>
-
-			<button
-				onClick={handleSave}
-				disabled={saving}
-				style={{
-					padding: 12,
-					fontSize: 16,
-					borderRadius: 8,
-					width: "60%",
-					maxWidth: 250,
-					backgroundColor: "#0070f3",
-					color: "white",
-					border: "none",
-					marginTop: 16,
-				}}
-			>
-				{saving ? "Saving..." : "Save"}
-			</button>
-
-			<button
-				onClick={handleShowOtherDays}
-				style={{
-					padding: 12,
-					fontSize: 16,
-					borderRadius: 8,
-					width: "60%",
-					maxWidth: 250,
-					backgroundColor: "#666",
-					color: "white",
-					border: "none",
-					marginTop: 16,
-				}}
-			>
-				Show Other Days
-			</button>
-
-			{showAll &&
-				allExercises.map((section, i) => (
-					<div key={i} style={{ marginTop: 32, width: "100%", maxWidth: 700 }}>
-						<h3
-							style={{ marginBottom: 8 }}
-						>{`${section.day} - ${section.group}`}</h3>
-
-						<div
-							style={{ display: "flex", fontWeight: "bold", marginBottom: 8 }}
-						>
-							<div style={{ flex: 2, ...cellStyle }}>Exercise</div>
-							<div style={{ width: 80, textAlign: "center", ...cellStyle }}>
-								Weight
+							<div style={{ flex: 3, ...cellStyle, fontSize: 14 }}>
+								{isMobile ? ex.abbreviation : ex.name}
 							</div>
-							<div style={{ width: 80, textAlign: "center", ...cellStyle }}>
-								Reps
+							<div style={{ width: 80, ...cellStyle }}>
+								<input
+									type="text"
+									value={ex.weight}
+									onChange={(e) => handleChangeWeight(i, e.target.value)}
+									style={inputStyle}
+								/>
 							</div>
-							<div style={{ width: 80, textAlign: "center", ...cellStyle }}>
-								Target
+							<div style={{ width: 80, ...cellStyle }}>
+								<input
+									type="text"
+									value={ex.reps}
+									onChange={(e) => handleChangeReps(i, e.target.value)}
+									style={inputStyle}
+								/>
 							</div>
-						</div>
-
-						{section.exercises.map((ex, j) => (
 							<div
-								key={j}
 								style={{
-									display: "flex",
-									alignItems: "center",
-									marginBottom: 12,
-									padding: 4,
-									borderRadius: 6,
-									backgroundColor: ex.superset
-										? supersetColors[ex.superset]
-										: "transparent",
-									color: ex.superset ? "white" : "inherit",
+									width: 80,
+									...cellStyle,
+									fontSize: 14,
+									textAlign: "center",
 								}}
 							>
-								<div style={{ flex: 2, ...cellStyle }}>{ex.abbreviation}</div>
+								{ex.target}
+							</div>
+						</div>
+					))}
+				</div>
+			)}
+
+			{dayLabel && muscleGroup && exercises.length > 0 && (
+				<>
+					<button
+						onClick={handleSave}
+						disabled={saving}
+						style={{
+							padding: 12,
+							fontSize: 16,
+							borderRadius: 8,
+							width: "60%",
+							maxWidth: 250,
+							backgroundColor: "#0070f3",
+							color: "white",
+							border: "none",
+							marginTop: 16,
+						}}
+					>
+						{saving ? "Saving..." : "Save"}
+					</button>
+
+					<button
+						onClick={handleShowOtherDays}
+						style={{
+							padding: 12,
+							fontSize: 16,
+							borderRadius: 8,
+							width: "60%",
+							maxWidth: 250,
+							backgroundColor: "#666",
+							color: "white",
+							border: "none",
+							marginTop: 16,
+						}}
+					>
+						Show Other Days
+					</button>
+				</>
+			)}
+
+			{showAll &&
+				allExercises.map((section, i) => {
+					const colors = getColorsForSection(section.group, section.exercises);
+
+					return (
+						<div
+							key={i}
+							style={{ marginTop: 32, width: "100%", maxWidth: 700 }}
+						>
+							<h3
+								style={{ marginBottom: 12, fontSize: 18, fontWeight: "bold" }}
+							>
+								{`${section.day} - ${section.group}`}
+							</h3>
+
+							<div
+								style={{ display: "flex", fontWeight: "bold", marginBottom: 8 }}
+							>
+								<div style={{ flex: 3, ...cellStyle }}>Exercise</div>
 								<div style={{ width: 80, textAlign: "center", ...cellStyle }}>
-									{ex.weight}
+									Weight
 								</div>
 								<div style={{ width: 80, textAlign: "center", ...cellStyle }}>
-									{ex.reps}
+									Reps
 								</div>
 								<div style={{ width: 80, textAlign: "center", ...cellStyle }}>
-									{ex.target}
+									Target
 								</div>
 							</div>
-						))}
-					</div>
-				))}
+
+							{section.exercises.map((ex, j) => (
+								<div
+									key={j}
+									style={{
+										display: "flex",
+										alignItems: "center",
+										marginBottom: 12,
+										padding: 4,
+										borderRadius: 6,
+										backgroundColor:
+											colors[ex.superset ?? ""] ??
+											colors["default"] ??
+											"transparent",
+										color: ex.superset ? "white" : "inherit",
+									}}
+								>
+									<div style={{ flex: 3, ...cellStyle, fontSize: 14 }}>
+										{isMobile ? ex.abbreviation : ex.name}
+									</div>
+									<div style={{ width: 80, textAlign: "center", ...cellStyle }}>
+										{ex.weight}
+									</div>
+									<div style={{ width: 80, textAlign: "center", ...cellStyle }}>
+										{ex.reps}
+									</div>
+									<div style={{ width: 80, textAlign: "center", ...cellStyle }}>
+										{ex.target}
+									</div>
+								</div>
+							))}
+						</div>
+					);
+				})}
 		</div>
 	);
 }

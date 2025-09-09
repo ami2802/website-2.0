@@ -18,7 +18,19 @@ export async function POST(req: NextRequest) {
     const owner = process.env.GITHUB_OWNER
     const repo = process.env.GITHUB_REPO
     const path = process.env.MD_PATH
-    const commitMsg = `Automated update - ${new Date().toISOString()}`
+    const commitMsg = `Automated update - ${new Date().toLocaleString("en-SG", {
+      day: "2-digit",
+      month: "2-digit",
+      year: "numeric",
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit",
+      hour12: false
+    })}`;
+    
+    if (!token || !owner || !repo || !path) {
+      return NextResponse.json({ error: 'Missing environment variables' }, { status: 500 })
+    }
 
     const getRes = await fetch(`https://api.github.com/repos/${owner}/${repo}/contents/${path}`, {
       headers: {

@@ -6,7 +6,7 @@ type Exercise = {
 	name: string;
 	abbreviation?: string;
 	superset?: string;
-	weight: number;
+	weight: string;
 	reps: string;
 	target: string;
 };
@@ -92,7 +92,7 @@ export default function GymPage() {
 					abbreviation: exerciseMap[cleanName] ?? cleanName,
 					superset: superset ? superset.trim() : "",
 					reps: reps.trim(),
-					weight: parseFloat(weightStr),
+					weight: weightStr.trim(),
 					target: target.trim(),
 				});
 			}
@@ -277,7 +277,7 @@ export default function GymPage() {
 				width: "100%",
 			}}
 		>
-			<h2 style={{ marginBottom: 12 }}>{`${dayLabel} - ${muscleGroup}`}</h2>
+			<h2 style={{ marginBottom: 12 }}>{`${dayLabel} - ${muscleGroup} Day`}</h2>
 			{error && <p style={{ color: "red", marginBottom: 8 }}>{error}</p>}
 			{success && <p style={{ color: "green", marginBottom: 8 }}>{success}</p>}
 
@@ -315,7 +315,7 @@ export default function GymPage() {
 						</div>
 						<div style={{ width: 80, ...cellStyle }}>
 							<input
-								type="number"
+								type="text"
 								value={ex.weight}
 								onChange={(e) => handleChangeWeight(i, e.target.value)}
 								style={inputStyle}

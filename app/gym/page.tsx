@@ -35,7 +35,7 @@ export default function GymPage() {
 				return "Pull";
 			case "Tuesday":
 			case "Friday":
-				return "Legs";
+				return "Leg";
 			default:
 				return "";
 		}

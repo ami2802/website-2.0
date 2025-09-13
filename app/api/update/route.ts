@@ -60,7 +60,10 @@ export async function POST(req: NextRequest) {
 
       updatedContent = updatedContent.replace(regex, match => {
         anyChange = true
-        return match.replace(/- \d+x\d+ @ \d+(?:\.\d+)?kg/, `- ${update.reps}x${update.reps} @ ${update.weight}kg`)
+        return match.replace(
+          /- (\d+)x\d+ @ \d+(?:\.\d+)?kg/,
+          (_, sets) => `- ${sets}x${update.reps} @ ${update.weight}kg`
+        )
       })
     })
 

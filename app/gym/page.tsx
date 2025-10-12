@@ -27,6 +27,14 @@ export default function GymPage() {
 	const [isMobile, setIsMobile] = useState(false);
 
 	useEffect(() => {
+		if (dayLabel && muscleGroup) {
+			document.title = `${dayLabel}: ${muscleGroup} Day`;
+		} else {
+			document.title = "Gym Tracker";
+		}
+	}, [dayLabel, muscleGroup]);
+
+	useEffect(() => {
 		const checkMobile = () => setIsMobile(window.innerWidth <= 768);
 		checkMobile();
 		window.addEventListener("resize", checkMobile);

@@ -17,7 +17,7 @@ export default function Home() {
   ];
 
   const urls = {
-    "github": "https://github.com/brightcosmo",
+    "github": "https://github.com/ami2802",
     "linkedin": "https://www.linkedin.com/in/amirulazizol/",
     "email": "mailto:amirulazizol.dev@gmail.com",
     // "instagram": "https://www.instagram.com/amirul.4z/",

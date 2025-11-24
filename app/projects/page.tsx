@@ -35,7 +35,7 @@ export default function ProjectsPage() {
       projectName: "RxNet",
       customLogo: (
         <Link
-          href="https://github.com/brightcosmo/RxNet"
+          href="https://github.com/ami2802/RxNet"
           target="_blank"
           rel="noreferrer noopener"
         >
@@ -43,7 +43,7 @@ export default function ProjectsPage() {
         </Link>
       ),
       projectCaption: "Blockchain-powered prescription management tool.",
-      projectLink: "https://github.com/brightcosmo/RxNet",
+      projectLink: "https://github.com/ami2802/RxNet",
       description:
         "RxNet is a blockchain-based prescription management app, finalist at APU DevMatch 2024 and cash prize winner at Monash Hackfest. Smart contracts streamline the process of issuing, tracking, and validating prescriptions, improving transparency and reducing fraud.",
       tags: ["Solana", "Blockchain", "Web3", "Smart Contracts"],
@@ -52,7 +52,7 @@ export default function ProjectsPage() {
       projectName: "DocGPT",
       customLogo: (
         <Link
-          href="https://github.com/brightcosmo/DocGPT-2"
+          href="https://github.com/ami2802/DocGPT-2"
           target="_blank"
           rel="noreferrer noopener"
         >
@@ -60,7 +60,7 @@ export default function ProjectsPage() {
         </Link>
       ),
       projectCaption: "Multimodal LLM healthcare chatbot.",
-      projectLink: "https://github.com/brightcosmo/DocGPT-2",
+      projectLink: "https://github.com/ami2802/DocGPT-2",
       description:
         "DocGPT is an AI-powered healthcare chatbot developed with Python and Streamlit. It offers functionalities like speech-to-text, image analysis, and interfaces with Google Maps to locate nearby clinics.",
       tags: ["Python", "LLMs", "Speech-to-text"],

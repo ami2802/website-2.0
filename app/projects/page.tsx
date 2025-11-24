@@ -15,7 +15,7 @@ import Link from "next/link";
 export default function ProjectsPage() {
   const projects: ProjectInfo[] = [
     {
-      projectName: "Final Year Project: LLM with RAG for VQA",
+      projectName: "Multimodal, Domain Specific LLM with RAG",
       customLogo: (
         <Link
           href="https://github.com/steaminghotomelette/mPLUG-Owl-RAG"

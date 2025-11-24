@@ -18,12 +18,41 @@ export default function WorkPage() {
       companyLogoUrl: TransPerfectLogo,
       start_date: formatFromMMMYYYY("Apr 2025"),
       listDescription: [
-        "Served as a vendor language engineer, focusing on multilingual voice assistant features, bugfixes, and R&D.",
-        "Fine-tuned model inputs to support Malay/Indonesian, improving understanding accuracy by 25%.",
-        "Automated data preprocessing and error analysis pipelines using Python, reducing noise in utterances by 35%.",
-        "Improved data pipelines on localized datasets for developing agentic and LLM-driven voice assistant features."
+        "Engineered ML pipelines for Malay voice assistant capabilities, covering ASR, NLU, TTS, and agentic LLMs.",
+        "Fine-tuned transformer-based semantic parsing and execution routing models; resolved 200+ regression bugs while maintaining 95% recall and precision across key intent categories.",
+        "Designed and executed ML experiments on preprocessed datasets, achieving a 23% reduction in data noise via automated filtering heuristics.",
+        "Collaborated with data curators to construct high-quality datasets spanning 14 domains (10K+ entries).",
+        "Automated end-to-end UI interaction for voice assistant, reducing manual QA effort by 90%.",
+        "Delivered 50+ localized health features by implementing new logic, triaging bugs, and validating integration tests."
       ],
-      tags: ["Natural Language Processing", "Machine Learning", "Swift", "Python", "Java", "Shell"]
+      tags: ["PyTorch", "Ray", "Kubernetes", "Python", "Swift"]
+    },
+    {
+      role: "Software Engineer Intern",
+      companyName: "Wavelet Solutions",
+      companyLogoUrl: WaveletLogo,
+      start_date: formatFromMMMYYYY("Jan 2024"),
+      end_date: formatFromMMMYYYY("Jun 2024"),
+      listDescription: [
+        "Optimized infrastructure and ensured reliability for an ERP processing 1M+ monthly financial transactions.",
+        "Engineered asynchronous ETL job processors to migrate 5M+ records to a centralized data lake.",
+        "Designed RESTful APIs using Java Spring Boot, enforcing strict error handling to meet a 99.9% uptime SLA.",
+        "Owned the end-to-end deployment of a configurable UI module across 10+ system components, impacting thousands of enterprise users."
+      ],
+      tags: ["SQL", "AWS", "Java", "Angular", "ETL"]
+    },
+    {
+      role: "Firmware Engineer Intern",
+      companyName: "Western Digital",
+      companyLogoUrl: WesternDigitalLogo,
+      start_date: formatFromMMMYYYY("Nov 2023"),
+      end_date: formatFromMMMYYYY("Jan 2024"),
+      listDescription: [
+        "Developed C++ firmware features for enterprise HDDs and Python automation scripts for failure analysis.",
+        "Implemented retry logic for hardware tests in Jenkins pipelines, reducing false positive build failure rates.",
+        "Reduced outstanding bugs by 21% for the host interface team"
+      ],
+      tags: ["C/C++", "Python", "Jenkins", "CI/CD"]
     },
     {
       role: "Teaching Assistant",
@@ -42,38 +71,11 @@ export default function WorkPage() {
       start_date: formatFromMMMYYYY("Jun 2024"),
       end_date: formatFromMMMYYYY("Jul 2024"),
       listDescription: [
-        "Led a global, cross-functional team of students to improve technical infrastructure for a local tutoring company.",
+        "Led a global, cross-functional team of students to improve technical infrastructure for a local tutoring company."
       ],
-    },    
-    {
-      role: "Software Engineer Intern",
-      companyName: "Wavelet Solutions",
-      companyLogoUrl: WaveletLogo,
-      start_date: formatFromMMMYYYY("Jan 2024"),
-      end_date: formatFromMMMYYYY("Jun 2024"),
-      listDescription: [
-        "Developed, tested, and deployed a major general UI setting applied to 10+ applets in production.",
-        "Refactored a Flutter mobile app to improve overall performance, cutting image and video load times by half.",
-        "Built queue tables and job processors to migrate millions of records from legacy systems to a datalake.",
-        "Performed 20+ micro-frontend deployments, utilizing AWS services such as S3 and Lambda.",
-        "Updated and maintained various CRUD RESTful APIs using Java with Spring Boot."
-      ],
-      tags: ["Flutter", "Angular", "NGRX", "AWS", "Java", "PostgreSQL", "ETL"]
-    },
-    {
-      role: "Firmware Engineer Intern",
-      companyName: "Western Digital",
-      companyLogoUrl: WesternDigitalLogo,
-      start_date: formatFromMMMYYYY("Nov 2023"),
-      end_date: formatFromMMMYYYY("Jan 2024"),
-      listDescription: [
-        "Developed and maintained eHDD firmware using unit testing, CI pipelines, and agile methodologies.",
-        "Resolved high priority bugs, including technical investigations and failure analysis on firmware problems.",
-        "Reduced the average bugs per sprint by 21% for the host interface team."
-      ],
-      tags: ["C/C++", "Unit Testing", "Multithreaded development"]
     }
   ];
+
 
   const scholarships: WorkInfo[] = [
     {

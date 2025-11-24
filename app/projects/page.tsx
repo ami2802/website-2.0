@@ -28,8 +28,8 @@ export default function ProjectsPage() {
       projectCaption: "A robust multimodal LLM for domain-specific visual-question answering.",
       projectLink: "https://github.com/steaminghotomelette/mPLUG-Owl-RAG",
       description:
-        "A custom multimodal LLM tailored to answering medical and forensic questions with Retrieval Augmented Generation (RAG). Utilizes a fine-tuned variant of the mPLUG-Owl3 model with a hybrid retrieval mechanism. Supports RAG uploads via Gemini for contextualizing and summarizing documents. Built with Streamlit and Langchain.",
-      tags: ["Computer Vision",  "Langchain", "Transformers"],
+        "A custom multimodal LLM for medical imaging and forensic VQA, awarded 2nd Best FYP for research potential. Fine-tuned an 8B vision-language model, improving accuracy by 30% over baseline using RAG and CoT. Architected a vector database with custom chunking and hybrid retrieval.",
+      tags: ["PyTorch", "Computer Vision",  "Langchain", "Transformers"],
     },
     {
       projectName: "RxNet",
@@ -45,7 +45,7 @@ export default function ProjectsPage() {
       projectCaption: "Blockchain-powered prescription management tool.",
       projectLink: "https://github.com/brightcosmo/RxNet",
       description:
-        "RxNet is a blockchain prescription management tool designed to streamline prescription processes, improve transparency, and reduce fraud. The platform allows medical practitioners to issue, track, and validate prescriptions securely while providing a transparent system for patients and healthcare providers.",
+        "RxNet is a blockchain-based prescription management app, finalist at APU DevMatch 2024 and cash prize winner at Monash Hackfest. Smart contracts streamline the process of issuing, tracking, and validating prescriptions, improving transparency and reducing fraud.",
       tags: ["Solana", "Blockchain", "Web3", "Smart Contracts"],
     },
     {
@@ -113,7 +113,7 @@ export default function ProjectsPage() {
       projectCaption: "University-wide competitive programming competition.",
       projectLink: "https://github.com/faw01/MCL",
       description:
-        "I placed 3rd in the Monash Coding League, a competitive programming contest with 100+ teams involving LeetCode-style problems. I was awarded a cash prize and certificate of achievement for my performance.",
+        "I placed 3rd in Monash Coding League, a competitive programming contest with 100+ teams involving LeetCode-style problems.",
       tags: ["Data Structures and Algorithms", "Python"],
     },
   ];

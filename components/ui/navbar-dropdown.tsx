@@ -43,6 +43,9 @@ export default function NavbarDropdown({
         <DropdownMenuItem asChild>
           <Link href="/documents/resume.pdf">resume</Link>
         </DropdownMenuItem>
+        <DropdownMenuItem asChild>
+          <Link href="https://ami2802.substack.com/">blog</Link>
+        </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
   );

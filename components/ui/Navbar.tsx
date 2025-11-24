@@ -70,6 +70,17 @@ export default function Navbar({ page }: { page: string }) {
                 resume
               </BreadcrumbLink>
             </BreadcrumbItem>
+              <RxCommit />
+            <BreadcrumbItem className={animation}>
+              <BreadcrumbLink
+                href={`https://ami2802.substack.com/`}
+                className="text-slate-600 dark:text-slate-300 hover:text-slate-400"
+                target={"_blank"}
+                rel={"noopener noreferrer"}
+              >
+                blog
+              </BreadcrumbLink>
+            </BreadcrumbItem>
           </BreadcrumbList>
         </Breadcrumb>
       </div>

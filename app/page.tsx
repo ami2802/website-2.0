@@ -4,7 +4,7 @@ import NavbarDropdown from "@/components/ui/navbar-dropdown";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { useState } from "react";
-import { FaGithub, FaInstagram, FaLinkedinIn } from "react-icons/fa";
+import { FaGithub, FaLinkedinIn } from "react-icons/fa";
 import { MdEmail, MdOutlineSpaceDashboard } from "react-icons/md";
 import { Analytics } from "@vercel/analytics/react";
 

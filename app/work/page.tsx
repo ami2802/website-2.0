@@ -3,8 +3,6 @@ import { WorkInfo } from "@/lib/types";
 import WesternDigitalLogo from "@/assets/western-digital.png";
 import WaveletLogo from "@/assets/wavelet.jpeg";
 import MonashLogo from "@/assets/monash.webp";
-import MonashWarwickLogo from "@/assets/monashwarwick.jpg";
-import SunwayLogo from "@/assets/sunway.jpg";
 import TransPerfectLogo from "@/assets/transperfect.jpeg";
 import WorkRow from "@/components/ui/work-row";
 import { formatFromMMMYYYY } from "@/lib/utils";
@@ -50,7 +48,7 @@ export default function WorkPage() {
       listDescription: [
         "Developed C++ firmware features for enterprise HDDs and Python automation scripts for failure analysis.",
         "Implemented retry logic for hardware tests in Jenkins pipelines, reducing false positive build failure rates.",
-        "Reduced outstanding bugs by 21% for the host interface team"
+        "Reduced outstanding bugs by 21% for the host interface team."
       ],
       tags: ["C/C++", "Python", "Jenkins", "CI/CD"]
     },
@@ -63,34 +61,24 @@ export default function WorkPage() {
       listDescription: [
         "TA and marker for FIT2014 (Theory of Computation) and FIT1045 (Intro to Programming)."
       ],
-    },
-    {
-      role: "Technology Consultant Intern",
-      companyName: "Monash Warwick Alliance",
-      companyLogoUrl: MonashWarwickLogo,
-      start_date: formatFromMMMYYYY("Jun 2024"),
-      end_date: formatFromMMMYYYY("Jul 2024"),
-      listDescription: [
-        "Led a global, cross-functional team of students to improve technical infrastructure for a local tutoring company."
-      ],
     }
   ];
 
 
-  const scholarships: WorkInfo[] = [
-    {
-      role: "Monash Industry Based Learning Scholarship",
-      companyLogoUrl: MonashLogo,
-    },
-    {
-      role: "Monash High Achiever Award",
-      companyLogoUrl: MonashLogo,
-    },
-    {
-      role: "Jeffrey Cheah Entrance Scholarship",
-      companyLogoUrl: SunwayLogo,
-    },
-  ];
+  // const scholarships: WorkInfo[] = [
+  //   {
+  //     role: "Monash Industry Based Learning Scholarship",
+  //     companyLogoUrl: MonashLogo,
+  //   },
+  //   {
+  //     role: "Monash High Achiever Award",
+  //     companyLogoUrl: MonashLogo,
+  //   },
+  //   {
+  //     role: "Jeffrey Cheah Entrance Scholarship",
+  //     companyLogoUrl: SunwayLogo,
+  //   },
+  // ];
 
   return (
     <main className="flex min-h-screen flex-col justify-center items-center p-8 md:p-24 bg-slate-100 dark:bg-midnight">
@@ -122,7 +110,7 @@ export default function WorkPage() {
           </div>
 
           {/* scholarships section */}
-          <div className="flex flex-col gap-5">
+          {/* <div className="flex flex-col gap-5">
             <div className="text-3xl font-bold text-slate-700 dark:text-slate-200">
               awards
             </div>
@@ -131,7 +119,7 @@ export default function WorkPage() {
                 <WorkRow key={idx} workInfo={work} idx={idx} />
               ))}
             </Accordion>
-          </div>
+          </div> */}
         </div>
       </div>
     </main>

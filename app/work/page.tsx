@@ -35,10 +35,11 @@ export default function WorkPage() {
       end_date: formatFromMMMYYYY("Jun 2024"),
       listDescription: [
         "Optimized infrastructure and ensured reliability for an ERP processing 1M+ monthly financial transactions.",
-        "Engineered asynchronous ETL job processors to migrate 5M+ records to a centralized data lake.",
-        "Designed RESTful APIs using Java Spring Boot, enforcing strict error handling to meet a 99.9% uptime SLA.",
-        "Owned the end-to-end deployment of a configurable UI module across 10+ system components, impacting thousands of enterprise users."
-      ],
+        "Engineered asynchronous ETL job processors to migrate 5M+ records to a centralized data lake. (SQL, AWS)",
+        "Designed RESTful APIs using Spring Boot, enforcing strict error handling to meet a 99.9% uptime SLA. (Java)",
+        "Developed and deployed a UI module for 10+ applets, adopted by thousands of enterprise users. (Angular)",
+        "Refactored a mobile app to improve performance and cut page loading times by 30%. (Flutter)"
+    ],
       tags: ["SQL", "AWS", "Java", "Angular", "ETL"]
     },
     {

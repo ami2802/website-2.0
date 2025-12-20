@@ -16,13 +16,15 @@ export default function WorkPage() {
       companyLogoUrl: TransPerfectLogo,
       start_date: formatFromMMMYYYY("Apr 2025"),
       listDescription: [
-        "Engineered ML pipelines for Malay voice assistant capabilities, covering ASR, NLU, TTS, and agentic LLMs.",
-        "Fine-tuned transformer-based semantic parsing and execution routing models; resolved 200+ regression bugs while maintaining 95% recall and precision across key intent categories.",
-        "Designed and executed ML experiments on preprocessed datasets, achieving a 23% reduction in data noise via automated filtering heuristics.",
-        "Collaborated with data curators to construct high-quality datasets spanning 14 domains (10K+ entries).",
-        "Automated end-to-end UI interaction for voice assistant, reducing manual QA effort by 90%.",
-        "Delivered 50+ localized health features by implementing new logic, triaging bugs, and validating integration tests."
-      ],
+        "Drove NLU, ASR, TTS for a big tech voice assistant (500M+ users) to improve Malay language performance.",
+        "Fine-tuned transformer-based models and resolved 300+ intent detection bugs. (PyTorch, Ray)",
+        "Shipped 50+ localized features by implementing new logic, triaging bugs, and validating integration tests.",
+        "Constructed high-quality datasets for low resource languages (Malay, Indonesian) for 14 domains (10K+ lines).",
+        "Designed and implemented rule-based filtering heuristics that reduced overall dataset noise by 23%.",
+        "Deployed and monitored fine-tuned models in a live environment to diagnose failures. (Kubernetes)",
+        "Built an automated end-to-end test suite, reducing manual QA effort by 90%. (Python, Swift)",
+        "Rearchitected internal tooling to use multithreading, achieving a 5x speedup. (C++)"
+    ],
       tags: ["PyTorch", "Ray", "Kubernetes", "Python", "Swift"]
     },
     {

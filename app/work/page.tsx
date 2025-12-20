@@ -40,15 +40,14 @@ export default function WorkPage() {
       tags: ["SQL", "AWS", "Java", "Angular", "ETL"]
     },
     {
-      role: "Firmware Engineer Intern",
+      role: "Embedded Software Engineer Intern",
       companyName: "Western Digital",
       companyLogoUrl: WesternDigitalLogo,
       start_date: formatFromMMMYYYY("Nov 2023"),
       end_date: formatFromMMMYYYY("Jan 2024"),
       listDescription: [
-        "Developed C++ firmware features for enterprise HDDs and Python automation scripts for failure analysis.",
-        "Implemented retry logic for hardware tests in Jenkins pipelines, reducing false positive build failure rates.",
-        "Reduced outstanding bugs by 21% for the host interface team."
+        "Engineered C++ firmware features and Python failure analysis scripts for enterprise HDDs. Reduced the host interface team's bug backlog by 21%.",
+        "Optimized Jenkins CI/CD pipelines by improving retry logic, reducing false positive build failures."
       ],
       tags: ["C/C++", "Python", "Jenkins", "CI/CD"]
     },

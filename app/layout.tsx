@@ -34,7 +34,7 @@ export default function RootLayout({
         <meta name="twitter:title" content="Amirul Azizol" />
         <meta
           name="twitter:description"
-          content="Machine learning engineer."
+          content="Machine learning engineer"
         />
         <meta name="twitter:image" content="https://amirul.dev/og-image.png" />
       </head>

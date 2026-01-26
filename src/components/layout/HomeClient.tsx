@@ -359,7 +359,7 @@ export default function HomeClient({ blogPosts, location }: HomeClientProps) {
                                         My experience as a third culture kid has been invaluable, but it comes from
                                         being a wanderer without a home. My philosophy is strongly rooted in{" "}
                                         <Link
-                                            href="/read/learning-to-be-good"
+                                            href="/learning-to-be-good"
                                             target="_blank"
                                             className="font-semibold text-amber-800 dark:text-amber-200 bg-amber-100 dark:bg-amber-900/30 px-2 py-0.5 rounded-full hover:bg-amber-200 dark:hover:bg-amber-900/50 transition-colors cursor-pointer outline-none"
                                         >

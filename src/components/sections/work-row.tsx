@@ -69,6 +69,12 @@ export default function WorkRow({
       </AccordionTrigger>
       {(workInfo.description || workInfo.listDescription || workInfo.tags) && (
         <AccordionContent className="text-slate-700 dark:text-slate-300 px-4 pb-4">
+          {workInfo.start_date && (
+            <div className="sm:hidden flex flex-row justify-between mb-4 text-xs font-medium text-slate-500 dark:text-slate-400 border-b border-border/20 pb-2 italic">
+              <div>{formatWorkPeriod(workInfo.start_date, workInfo.end_date)}</div>
+              <div>{duration}</div>
+            </div>
+          )}
           <div>{workInfo.description}</div>
           {workInfo.listDescription && (
             <ul className="list-disc pl-8">

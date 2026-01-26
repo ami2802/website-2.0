@@ -28,13 +28,13 @@ export default async function Home() {
     url: `/blog/${post.id}`,
   }));
 
-  // Merge and sort
+  // Merge+sort
   const allPosts: MergedPost[] = [...localPosts, ...rssPosts].sort((a, b) => {
     return new Date(b.date).getTime() - new Date(a.date).getTime();
   });
 
   // Fetch GitHub location
-  let location = "Singapore"; // Default fallback
+  let location = "Singapore";
   try {
     const res = await fetch("https://api.github.com/users/ami2802", {
       next: { revalidate: 3600 },

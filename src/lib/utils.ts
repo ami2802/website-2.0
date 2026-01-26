@@ -7,9 +7,7 @@ export function cn(...inputs: ClassValue[]) {
 
 export function formatWorkPeriod(startDate: Date, endDate?: Date) {
   if (!endDate) {
-    return formatToMMMYYYY(startDate) + " - present";
-  } else if (startDate.getFullYear() == endDate.getFullYear()) {
-    return formatToMMM(startDate) + " - " + formatToMMMYYYY(endDate);
+    return formatToMMMYYYY(startDate) + " - Present";
   } else {
     return formatToMMMYYYY(startDate) + " - " + formatToMMMYYYY(endDate);
   }
@@ -24,7 +22,14 @@ export function formatToMMMYYYY(date: Date): string {
 }
 
 export function formatFromMMMYYYY(dateString: string): Date {
-  return new Date(Date.parse(dateString + " 01"));
+  const [monthStr, yearStr] = dateString.split(" ");
+  const months: { [key: string]: number } = {
+    Jan: 0, Feb: 1, Mar: 2, Apr: 3, May: 4, Jun: 5,
+    Jul: 6, Aug: 7, Sep: 8, Oct: 9, Nov: 10, Dec: 11,
+  };
+  const monthIndex = months[monthStr];
+  const year = parseInt(yearStr);
+  return new Date(year, monthIndex, 1);
 }
 
 export function monthsBetween(start: Date, end?: Date): string {

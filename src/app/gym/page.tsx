@@ -11,6 +11,50 @@ type Exercise = {
   target: string;
 };
 
+const exerciseMap: Record<string, string> = {
+  "Tricep extension": "Tricep ext.",
+  "Leg extension": "Leg ext.",
+  "Romanian deadlift": "Romanian DL",
+  "Lateral pulldown": "Lat pulldown",
+  "Wrist extension": "Wrist ext.",
+};
+
+const dayToGroup = (day: string) => {
+  switch (day) {
+    case "Sunday":
+    case "Wednesday":
+      return "Push";
+    case "Monday":
+    case "Thursday":
+      return "Pull";
+    case "Tuesday":
+    case "Friday":
+      return "Leg";
+    default:
+      return "";
+  }
+};
+
+const parseExercises = (content: string): Exercise[] => {
+  const exerciseMatches = content.matchAll(
+    /### (.+?)(?:\s*<!--\s*(superset [A-Z])\s*-->)?\r?\n(?:#### .+\r?\n)?- (\d+)x(\d+) @ (\d+(?:\.\d+)?)kg\r?\n- Target:\s*([\d\-\u2013]+)/gi,
+  );
+  const parsedExercises: Exercise[] = [];
+  for (const match of exerciseMatches) {
+    const [, name, superset, , reps, weightStr, target] = match;
+    const cleanName = name.trim();
+    parsedExercises.push({
+      name: cleanName,
+      abbreviation: exerciseMap[cleanName] ?? cleanName,
+      superset: superset ? superset.trim() : "",
+      reps: reps.trim(),
+      weight: weightStr.trim(),
+      target: target.trim(),
+    });
+  }
+  return parsedExercises;
+};
+
 export default function GymPage() {
   const [password, setPassword] = useState("");
   const [loggedIn, setLoggedIn] = useState(false);
@@ -41,21 +85,6 @@ export default function GymPage() {
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
-  const dayToGroup = (day: string) => {
-    switch (day) {
-      case "Sunday":
-      case "Wednesday":
-        return "Push";
-      case "Monday":
-      case "Thursday":
-        return "Pull";
-      case "Tuesday":
-      case "Friday":
-        return "Leg";
-      default:
-        return "";
-    }
-  };
 
   const supersetColors: Record<string, string> = {
     "superset A": "#284B63",
@@ -75,19 +104,15 @@ export default function GymPage() {
 
   const colors = getColorsForSection(muscleGroup, exercises);
 
-  const exerciseMap: Record<string, string> = {
-    "Tricep extension": "Tricep ext.",
-    "Leg extension": "Leg ext.",
-    "Romanian deadlift": "Romanian DL",
-    "Lateral pulldown": "Lat pulldown",
-    "Wrist extension": "Wrist ext.",
-  };
 
-  const fetchMd = useCallback(async (): Promise<void> => {
+  const fetchMd = useCallback(async (pass?: string): Promise<void> => {
+    const activePassword = pass ?? password;
+    if (!activePassword) return;
+
     try {
       const res = await fetch("/api/get", {
         cache: "no-store",
-        headers: { "x-password": password },
+        headers: { "x-password": activePassword },
       });
       const data = await res.json();
 
@@ -109,53 +134,41 @@ export default function GymPage() {
       setDayLabel(today);
 
       const sections: string[] = md
-        .split("\n## ")
-        .map((s: string) => s.replace(/^## /, ""));
+        .split(/\r?\n(?=## )/)
+        .map((s: string) => s.replace(/^## /, "").trim());
+
       const todaySection = sections.find((s) =>
         s.toLowerCase().includes(group.toLowerCase()),
       );
       if (!todaySection) {
         setExercises([]);
+        // Don't show error if it's just a rest day, but maybe set a status
         setError(`No workout scheduled for today (${today})`);
         return;
       }
 
-      const exerciseMatches = todaySection.matchAll(
-        /### (.+?)(?:\s*<!--\s*(superset [A-Z])\s*-->)?\n(?:#### .+\n)?- (\d+)x(\d+) @ (\d+(?:\.\d+)?)kg\n- Target: ([\d–]+)/g,
-      );
-      const parsedExercises: Exercise[] = [];
-      for (const match of exerciseMatches) {
-        const [, name, superset, , reps, weightStr, target] = match;
-        const cleanName = name.trim();
-        parsedExercises.push({
-          name: cleanName,
-          abbreviation: exerciseMap[cleanName] ?? cleanName,
-          superset: superset ? superset.trim() : "",
-          reps: reps.trim(),
-          weight: weightStr.trim(),
-          target: target.trim(),
-        });
-      }
-
-      setExercises(parsedExercises);
+      setExercises(parseExercises(todaySection));
       setError("");
     } catch (err) {
       console.error(err);
       setError("Failed to fetch or parse md");
     }
-  }, []);
+  }, [password]);
 
   useEffect(() => {
     if (loggedIn) fetchMd();
   }, [loggedIn, fetchMd]);
 
   const handleLogin = () => {
-    if (!password) {
+    const trimmed = password.trim();
+    if (!trimmed) {
       setError("Enter password");
       return;
     }
     setError("");
     setLoggedIn(true);
+    setPassword(trimmed);
+    fetchMd(trimmed);
   };
 
   const handleChangeWeight = (index: number, value: string) => {
@@ -231,25 +244,11 @@ export default function GymPage() {
         const dayMatch = section.match(/\((.*?)\)/);
         const day = dayMatch ? dayMatch[1] : "Unknown";
 
-        const exerciseMatches = section.matchAll(
-          /### (.+?)(?:\s*<!--\s*(superset [A-Z])\s*-->)?\n(?:#### .+\n)?- (\d+)x(\d+) @ (\d+(?:\.\d+)?)kg\n- Target: ([\d–]+)/g,
-        );
-
-        const exercisesArr: Exercise[] = [];
-        for (const match of exerciseMatches) {
-          const [, name, superset, , reps, weightStr, target] = match;
-          const cleanName = name.trim();
-          exercisesArr.push({
-            name: cleanName,
-            abbreviation: exerciseMap[cleanName] ?? cleanName,
-            superset: superset ? superset.trim() : "",
-            reps: reps.trim(),
-            weight: weightStr.trim(),
-            target: target.trim(),
-          });
-        }
-
-        parsedAll.push({ day, group, exercises: exercisesArr });
+        parsedAll.push({
+          day,
+          group,
+          exercises: parseExercises(section)
+        });
       });
 
       setAllExercises(parsedAll);
@@ -278,6 +277,9 @@ export default function GymPage() {
           placeholder="Enter password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
+          onKeyDown={(e) => {
+            if (e.key === "Enter") handleLogin();
+          }}
           style={{
             padding: 12,
             fontSize: 16,

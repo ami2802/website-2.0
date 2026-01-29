@@ -343,8 +343,8 @@ export default function HomeClient({ blogPosts, location }: HomeClientProps) {
                                             Monash University
                                         </Link>{" "}
                                         in 2025 with a high distinction grade. I maintained the HAA
-                                        scholarship awarded to the top 1% of the cohort, and was one of
-                                        just seven recipients of the IBL scholarship in 2024.
+                                        scholarship for all 3 years (awarded to the top 1%), and
+                                        was one of seven recipients of the IBL scholarship in 2024.
                                     </p>
                                     <p className="text-sm sm:text-base md:text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
                                         I like to think of myself as someone who wears many

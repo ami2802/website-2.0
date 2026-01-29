@@ -23,14 +23,14 @@ export default function ReaderContent() {
                     html, body { background-color: #7c7c7c !important; margin: 0; padding: 0; }
                 `}</style>
 
-                <header className="w-full h-5 flex items-center justify-end pr-6 shrink-0 z-50 bg-[#7c7c7c]">
+                <header className="w-full h-8 flex items-center justify-center shrink-0 z-50 bg-[#727272]">
                     <Link
                         href="https://www.degruyterbrill.com/document/doi/10.1525/9780520340985-008/html"
                         target="_blank"
-                        className="flex items-center gap-1.5 text-[#2c2c2c] hover:text-black transition-all group"
+                        className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#2c2c2c] text-[#727272] hover:bg-black hover:text-white transition-all group"
                     >
-                        <span className="text-[13px] font-medium leading-none">Source</span>
-                        <ArrowUpRight className="w-3.5 h-3.5 opacity-50 group-hover:opacity-100 transition-opacity" />
+                        <span className="text-[11px] font-semibold leading-none">Source</span>
+                        <ArrowUpRight className="w-3 h-3 opacity-50 group-hover:opacity-100 transition-opacity" />
                     </Link>
                 </header>
 

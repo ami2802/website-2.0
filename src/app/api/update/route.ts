@@ -67,17 +67,15 @@ export async function POST(req: NextRequest) {
 
     updates.forEach((update) => {
       const exName = update.name.replace(/[-/\\^$*+?.()|[\]{}]/g, "\\$&");
+      // Use a more robust regex to capture the header part and the exercise line, handling CRLF and spaces
       const regex = new RegExp(
-        `(### ${exName}(?:\\s*<!--.*?-->)?\\n)- \\d+x\\d+ @ \\d+(?:\\.\\d+)?kg`,
+        `(### ${exName}(?:\\s*<!--.*?-->)?\\s*\\r?\\n)- (\\d+)x\\d+ @ \\d+(?:\\.\\d+)?kg`,
         "g",
       );
 
-      updatedContent = updatedContent.replace(regex, (match) => {
+      updatedContent = updatedContent.replace(regex, (_, header, sets) => {
         anyChange = true;
-        return match.replace(
-          /- (\d+)x\d+ @ \d+(?:\.\d+)?kg/,
-          (_, sets) => `- ${sets}x${update.reps} @ ${update.weight}kg`,
-        );
+        return `${header}- ${sets}x${update.reps} @ ${update.weight}kg`;
       });
     });
 

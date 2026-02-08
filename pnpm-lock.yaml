@@ -44,9 +44,6 @@ importers:
       html-react-parser:
         specifier: ^5.2.12
         version: 5.2.12(@types/react@19.2.9)(react@19.2.3)
-      iso-3166-1:
-        specifier: ^2.1.1
-        version: 2.1.1
       lucide-react:
         specifier: ^0.436.0
         version: 0.436.0(react@19.2.3)
@@ -1998,9 +1995,6 @@ packages:
 
   isexe@2.0.0:
     resolution: {integrity: sha512-RHxMLp9lnKHGHRng9QFhRCMbYAcVpn69smSGcq3f36xjgVVWThj4qqLbTLlq7Ssj8B+fIQ1EuCEGI2lKsyQeIw==}
-
-  iso-3166-1@2.1.1:
-    resolution: {integrity: sha512-RZxXf8cw5Y8LyHZIwIRvKw8sWTIHh2/txBT+ehO0QroesVfnz3JNFFX4i/OC/Yuv2bDIVYrHna5PMvjtpefq5w==}
 
   iterator.prototype@1.1.5:
     resolution: {integrity: sha512-H0dkQoCa3b2VEeKQBOxFph+JAbcrQdE7KC0UkqwpLmv2EC4P41QXP+rqo9wYodACiG5/WM5s9oDApTU8utwj9g==}
@@ -5045,8 +5039,6 @@ snapshots:
   isarray@2.0.5: {}
 
   isexe@2.0.0: {}
-
-  iso-3166-1@2.1.1: {}
 
   iterator.prototype@1.1.5:
     dependencies:

@@ -1,18 +1,18 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter, Noto_Serif } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { ModeToggle } from "@/components/ui/mode-toggle";
 import { Analytics } from "@vercel/analytics/react";
 
-const geistSans = Geist({
+const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-geist-sans",
+  variable: "--font-inter",
 });
 
-const geistMono = Geist_Mono({
+const notoSerif = Noto_Serif({
   subsets: ["latin"],
-  variable: "--font-geist-mono",
+  variable: "--font-noto",
 });
 
 export const metadata: Metadata = {
@@ -20,6 +20,28 @@ export const metadata: Metadata = {
   description: "Amirul's Portfolio",
   icons: {
     icon: "/favicon.ico",
+  },
+  openGraph: {
+    title: "Amirul Azizol",
+    description: "Machine learning engineer.",
+    url: "https://amirul.dev",
+    siteName: "amirul.dev",
+    images: [
+      {
+        url: "/me.png",
+        width: 1200,
+        height: 630,
+        alt: "Amirul Azizol",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Amirul Azizol",
+    description: "Machine learning engineer.",
+    images: ["/me.png"],
   },
 };
 
@@ -30,17 +52,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <head>
-        <meta property="og:type" content="website" />
-        <meta property="og:title" content="Amirul Azizol" />
-        <meta property="og:description" content="Machine learning engineer." />
-        <meta property="og:url" content="https://amirul.dev" />
-
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Amirul Azizol" />
-        <meta name="twitter:description" content="Machine learning engineer" />
-      </head>
-      <body className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased`}>
+      <body className={`${inter.variable} ${notoSerif.variable} font-sans antialiased`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"

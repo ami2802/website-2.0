@@ -33,25 +33,9 @@ export default async function Home() {
     return new Date(b.date).getTime() - new Date(a.date).getTime();
   });
 
-  // Fetch GitHub location
-  let location = "Singapore";
-  try {
-    const res = await fetch("https://api.github.com/users/ami2802", {
-      next: { revalidate: 3600 },
-    });
-    if (res.ok) {
-      const data = await res.json();
-      if (data.location) {
-        location = data.location;
-      }
-    }
-  } catch (e) {
-    console.error("Failed to fetch GitHub location", e);
-  }
-
   return (
     <>
-      <HomeClient blogPosts={allPosts} location={location} />
+      <HomeClient blogPosts={allPosts} />
       <Analytics />
     </>
   );

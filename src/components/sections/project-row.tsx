@@ -40,7 +40,7 @@ export default function ProjectRow({
         {/* Company info */}
         <div className="flex flex-col w-full">
           <div className="flex flex-row gap-4 justify-between items-center w-full">
-            <div className="text-slate-700 dark:text-slate-200 font-semibold text-sm sm:text-lg">
+            <div className="text-title font-semibold text-sm sm:text-lg">
               {projectInfo.projectName}
             </div>
             <div className="flex flex-row gap-2">
@@ -50,7 +50,7 @@ export default function ProjectRow({
                   target="_blank"
                   rel="noreferrer noopener"
                   onClick={(e) => e.stopPropagation()}
-                  className="flex items-center justify-center p-1.5 bg-slate-100 dark:bg-slate-800 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition shrink-0"
+                  className="flex items-center justify-center p-1.5 bg-interactive rounded-lg text-muted-custom hover:bg-interactive-hover transition shrink-0"
                   title="Read on Substack"
                 >
                   <SiSubstack className="w-3.5 h-3.5 text-[#FF6719]" />
@@ -62,7 +62,7 @@ export default function ProjectRow({
                   target="_blank"
                   rel="noreferrer noopener"
                   onClick={(e) => e.stopPropagation()}
-                  className="flex items-center justify-center p-1.5 bg-slate-100 dark:bg-slate-800 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition shrink-0"
+                  className="flex items-center justify-center p-1.5 bg-interactive rounded-lg text-muted-custom hover:bg-interactive-hover transition shrink-0"
                   title="Watch on YouTube"
                 >
                   <FaYoutube className="w-4 h-4 text-[#FF0000]" />
@@ -74,7 +74,7 @@ export default function ProjectRow({
                   target="_blank"
                   rel="noreferrer noopener"
                   onClick={(e) => e.stopPropagation()}
-                  className="flex items-center justify-center p-1.5 bg-slate-100 dark:bg-slate-800 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition shrink-0"
+                  className="flex items-center justify-center p-1.5 bg-interactive rounded-lg text-muted-custom hover:bg-interactive-hover transition shrink-0"
                   title="View Slides"
                 >
                   <SiGoogleslides className="w-4 h-4 text-[#F4B400]" />
@@ -86,7 +86,7 @@ export default function ProjectRow({
                   target="_blank"
                   rel="noreferrer noopener"
                   onClick={(e) => e.stopPropagation()}
-                  className="flex items-center justify-center p-1.5 bg-slate-100 dark:bg-slate-800 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition shrink-0"
+                  className="flex items-center justify-center p-1.5 bg-interactive rounded-lg text-muted-custom hover:bg-interactive-hover transition shrink-0"
                   title="View on GitHub"
                 >
                   <FaGithub className="w-4 h-4" />
@@ -94,7 +94,7 @@ export default function ProjectRow({
               )}
             </div>
           </div>
-          <div className="hidden sm:block text-slate-500 dark:text-slate-400 text-sm sm:text-base text-left">
+          <div className="hidden sm:block text-muted-custom text-sm sm:text-base text-left">
             {projectInfo.projectCaption}
           </div>
         </div>
@@ -102,7 +102,7 @@ export default function ProjectRow({
       {(projectInfo.description ||
         projectInfo.listDescription ||
         projectInfo.tags) && (
-          <AccordionContent className="text-slate-700 dark:text-slate-300 px-4 pb-4">
+          <AccordionContent className="text-body px-4 pb-4">
             <div>{projectInfo.description}</div>
             {projectInfo.listDescription && (
               <ul className="list-disc pl-8">
@@ -116,7 +116,7 @@ export default function ProjectRow({
                 {projectInfo.tags.map((tag, idx) => (
                   <div
                     key={idx}
-                    className="px-2 py-1 rounded-lg bg-slate-200 dark:bg-slate-800 text-xs transition ease-in-out hover:scale-110 font-semibold text-slate-500 dark:text-slate-400"
+                    className="px-2 py-1 rounded-lg bg-interactive text-xs transition ease-in-out hover:scale-110 font-semibold text-muted-custom"
                   >
                     {tag}
                   </div>

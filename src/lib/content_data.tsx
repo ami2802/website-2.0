@@ -39,7 +39,7 @@ export const projectsData: ProjectInfo[] = [
         projectLink: "https://github.com/steaminghotomelette/mPLUG-Owl-RAG",
         slidesLink: "https://docs.google.com/presentation/d/18c8sIe5GDjXr2s8vCOjtXbL6Hjm8I63aMM3gYvaBRpc/edit?usp=sharing",
         description:
-            "We were the top FYP of our summer '24 cohort. The project involves a custom multimodal LLM built for VQA tasks in medical imaging and forensic videos. We fine-tuned an 8B vision-language model, combining it with RAG and COT to improve accuracy by 30% over baseline. I was in charge of architecting the RAG system, implemented using a vector database with a custom chunking algorithm and a hybrid retrieval mechanism.",
+            "We were the top FYP of our summer '24 cohort, supervised by Dr. Lim Chern Hong. The project involves a custom multimodal LLM built for VQA tasks in medical imaging and forensic videos. We fine-tuned an 8B vision-language model, combining it with RAG and COT to improve accuracy by 30% over baseline. I was in charge of architecting the RAG system, implemented using a vector database with a custom chunking algorithm and a hybrid retrieval mechanism.",
         tags: ["PyTorch", "Computer Vision", "Langchain", "Transformers"],
     },
     {
@@ -96,7 +96,7 @@ export const workData: WorkInfo[] = [
         companyLogoUrl: TransPerfectLogo,
         start_date: formatFromMMMYYYY("Apr 2025"),
         listDescription: [
-            "Improved on-device NLU, ASR, TTS in Malay for a big tech voice assistant (500M+ users).",
+            "Improved on-device NLU, ASR, TTS in Malay for a big tech voice assistant.",
             "Fine-tuned transformer-based models and resolved 300+ intent detection bugs.",
             "Shipped 50+ localized features by implementing new logic, triaging bugs, and validating integration tests.",
             "Constructed high-quality datasets for low resource languages (Malay, Indonesian) for several domains.",

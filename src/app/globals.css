@@ -8,8 +8,8 @@
    ============================================ */
 
 @theme {
-  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
-  --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 
   /* Custom Colors */
   --color-customGray: #060609;
@@ -64,6 +64,48 @@
 .no-scrollbar {
   -ms-overflow-style: none;
   scrollbar-width: none;
+}
+
+/* ============================================
+   Unified Text & Interactive Utilities
+   ============================================ */
+
+/* Text colors */
+@utility text-heading {
+  color: var(--text-heading);
+}
+
+@utility text-title {
+  color: var(--text-title);
+}
+
+@utility text-body {
+  color: var(--text-body);
+}
+
+@utility text-muted-custom {
+  color: var(--text-muted);
+}
+
+/* Interactive backgrounds */
+@utility bg-interactive {
+  background-color: var(--bg-interactive);
+}
+
+@utility bg-interactive-hover {
+  &:hover {
+    background-color: var(--bg-interactive-hover);
+  }
+}
+
+@utility border-interactive {
+  border-color: var(--border-interactive);
+}
+
+@utility border-interactive-hover {
+  &:hover {
+    border-color: var(--border-interactive-hover);
+  }
 }
 
 @utility delay-200 {
@@ -151,6 +193,32 @@
   --input: 214.3 31.8% 91.4%;
   --ring: 222.2 84% 4.9%;
   --radius: 0.5rem;
+
+  /* ========== UNIFIED TEXT COLORS ========== */
+  /* Headings - darkest, most prominent */
+  --text-heading: #0f172a;
+  /* slate-900 */
+  /* Titles - card titles, section headers */
+  --text-title: #334155;
+  /* slate-700 */
+  /* Body - main content text */
+  --text-body: #334155;
+  /* slate-700 */
+  /* Muted - secondary info, dates, captions */
+  --text-muted: #64748b;
+  /* slate-500 */
+
+  /* ========== UNIFIED INTERACTIVE BACKGROUNDS ========== */
+  /* Button/interactive element background */
+  --bg-interactive: #f1f5f9;
+  /* slate-100 */
+  --bg-interactive-hover: #e2e8f0;
+  /* slate-200 */
+  /* Border for interactive elements */
+  --border-interactive: #e2e8f0;
+  /* slate-200 */
+  --border-interactive-hover: #cbd5e1;
+  /* slate-300 */
 }
 
 .dark {
@@ -173,6 +241,26 @@
   --border: 217.2 32.6% 17.5%;
   --input: 217.2 32.6% 17.5%;
   --ring: 212.7 26.8% 83.9%;
+
+  /* ========== UNIFIED TEXT COLORS (DARK) ========== */
+  --text-heading: #f1f5f9;
+  /* slate-100 */
+  --text-title: #e2e8f0;
+  /* slate-200 */
+  --text-body: #cbd5e1;
+  /* slate-300 */
+  --text-muted: #94a3b8;
+  /* slate-400 */
+
+  /* ========== UNIFIED INTERACTIVE BACKGROUNDS (DARK) ========== */
+  --bg-interactive: #1e293b;
+  /* slate-800 */
+  --bg-interactive-hover: #334155;
+  /* slate-700 */
+  --border-interactive: #334155;
+  /* slate-700 */
+  --border-interactive-hover: #475569;
+  /* slate-600 */
 }
 
 /* ============================================

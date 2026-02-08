@@ -16,21 +16,18 @@ const notoSerif = Noto_Serif({
 });
 
 export const metadata: Metadata = {
-  title: "amirul.dev",
-  description: "Amirul's Portfolio",
   icons: {
     icon: "/favicon.ico",
   },
   openGraph: {
     title: "Amirul Azizol",
-    description: "Machine learning engineer.",
     url: "https://amirul.dev",
     siteName: "amirul.dev",
     images: [
       {
         url: "/me.png",
-        width: 1200,
-        height: 630,
+        width: 1374,
+        height: 1832,
         alt: "Amirul Azizol",
       },
     ],
@@ -40,7 +37,6 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Amirul Azizol",
-    description: "Machine learning engineer.",
     images: ["/me.png"],
   },
 };

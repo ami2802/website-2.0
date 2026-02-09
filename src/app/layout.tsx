@@ -16,6 +16,7 @@ const notoSerif = Noto_Serif({
 });
 
 export const metadata: Metadata = {
+  title: "Amirul Azizol",
   icons: {
     icon: "/favicon.ico",
   },
@@ -35,7 +36,7 @@ export const metadata: Metadata = {
     type: "website",
   },
   twitter: {
-    card: "summary_large_image",
+    card: "summary",
     title: "Amirul Azizol",
     images: ["/me.png"],
   },

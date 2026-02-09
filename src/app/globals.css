@@ -47,8 +47,8 @@
   --aspect-4/5: 4/5;
 
   /* Animations */
-  --animate-accordion-down: accordion-down 0.5s ease-in-out;
-  --animate-accordion-up: accordion-up 0.5s ease-in-out;
+  --animate-accordion-down: accordion-down 0.3s ease-in-out;
+  --animate-accordion-up: accordion-up 0.3s ease-in-out;
   --animate-wiggle: wiggle 200ms ease-in-out;
   --animate-grid: grid 15s linear infinite;
 }

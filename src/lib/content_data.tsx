@@ -142,7 +142,7 @@ export const workData: WorkInfo[] = [
         start_date: formatFromMMMYYYY("Jan 2023"),
         end_date: formatFromMMMYYYY("Dec 2024"),
         listDescription: [
-            "Taught in tutorial classes, marked assignments, and hosted private consultations for FIT2014 (Theory of Computation) and FIT1045 (Intro to Programming).",
+            "Taught tutorial classes, marked assignments, and hosted one-on-one sessions for FIT2014 (Theory of Computation) and FIT1045 (Intro to Programming).",
         ],
     },
 ];

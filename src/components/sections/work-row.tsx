@@ -30,7 +30,7 @@ export default function WorkRow({
   return (
     <AccordionItem
       value={"work-" + idx.toString()}
-      className="bg-card rounded-xl shadow-sm border border-border/50 transition-all hover:bg-slate-50 dark:hover:bg-slate-800/50 hover:border-slate-300 dark:hover:border-slate-700 hover:shadow-md flex flex-col"
+      className="group transition-all hover:bg-interactive-hover flex flex-col rounded-xl"
     >
       <AccordionTrigger className="p-4 flex flex-row gap-4 items-center w-full text-start cursor-pointer hover:no-underline">
         {/* Image container */}
@@ -50,7 +50,7 @@ export default function WorkRow({
               {workInfo.role}
             </div>
             {workInfo.start_date && (
-              <div className="hidden sm:flex flex-col gap-1 text-muted-custom">
+              <div className="hidden sm:flex flex-col gap-1 text-muted-custom text-sm text-right shrink-0">
                 {formatWorkPeriod(workInfo.start_date, workInfo.end_date)}
               </div>
             )}
@@ -60,7 +60,7 @@ export default function WorkRow({
               {workInfo.companyName}
             </div>
             {workInfo.start_date && (
-              <div className="hidden sm:flex flex-col gap-1 text-muted-custom">
+              <div className="hidden sm:flex flex-col gap-1 text-muted-custom text-sm text-right shrink-0">
                 {duration}
               </div>
             )}

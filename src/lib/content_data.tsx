@@ -1,8 +1,8 @@
 import { ProjectInfo, WorkInfo } from "@/lib/types";
 import {
-    BookOpen,
+    ScanEye,
     Pill,
-    MessageCircle,
+    Stethoscope,
     Recycle,
     HeartPulse,
     ShieldCheck,
@@ -30,16 +30,16 @@ export const projectsData: ProjectInfo[] = [
         tags: ["AI Safety", "ControlArena", "Research"],
     },
     {
-        projectName: "Monash University Final Year Project",
+        projectName: "Multimodal LLM with RAG for domain analysis",
         customLogo: (
-            <BookOpen className="text-orange-600 dark:text-orange-400 text-4xl w-full h-full p-2 bg-orange-100 dark:bg-orange-950 rounded-lg shadow-lg shadow-slate-200 dark:shadow-black transition hover:scale-110 ease-in-out" />
+            <ScanEye className="text-orange-600 dark:text-orange-400 text-4xl w-full h-full p-2 bg-orange-100 dark:bg-orange-950 rounded-lg shadow-lg shadow-slate-200 dark:shadow-black transition hover:scale-110 ease-in-out" />
         ),
         projectCaption:
             "A multimodal, domain-specific LLM for visual question-answering",
         projectLink: "https://github.com/steaminghotomelette/mPLUG-Owl-RAG",
         slidesLink: "https://docs.google.com/presentation/d/18c8sIe5GDjXr2s8vCOjtXbL6Hjm8I63aMM3gYvaBRpc/edit?usp=sharing",
         description:
-            "We were the top FYP of our summer '24 cohort, supervised by Dr. Lim Chern Hong. The project involves a custom multimodal LLM built for VQA tasks in medical imaging and forensic videos. We fine-tuned an 8B vision-language model, combining it with RAG and COT to improve accuracy by 30% over baseline. I was in charge of architecting the RAG system, implemented using a vector database with a custom chunking algorithm and a hybrid retrieval mechanism.",
+            "We were among the top FYPs of our summer '24 cohort, supervised by Dr. Lim Chern Hong. The project involves a custom multimodal LLM built for VQA tasks in medical imaging and forensic videos. We fine-tuned an 8B vision-language model, combining it with RAG and COT to improve accuracy by 30% over baseline. I was in charge of architecting the RAG system, implemented using a vector database with a custom chunking algorithm and a hybrid retrieval mechanism.",
         tags: ["PyTorch", "Computer Vision", "Langchain", "Transformers"],
     },
     {
@@ -57,12 +57,12 @@ export const projectsData: ProjectInfo[] = [
     {
         projectName: "DocGPT",
         customLogo: (
-            <MessageCircle className="text-green-600 dark:text-green-400 text-4xl w-full h-full p-2 bg-green-100 dark:bg-green-950 rounded-lg shadow-lg shadow-slate-200 dark:shadow-black transition hover:scale-110 ease-in-out" />
+            <Stethoscope className="text-green-600 dark:text-green-400 text-4xl w-full h-full p-2 bg-green-100 dark:bg-green-950 rounded-lg shadow-lg shadow-slate-200 dark:shadow-black transition hover:scale-110 ease-in-out" />
         ),
         projectCaption: "LLM healthcare chatbot",
         projectLink: "https://github.com/ami2802/DocGPT-2",
         description:
-            "DocGPT is an AI-powered healthcare chatbot developed with Python and Streamlit. I integrated speech-to-text, image analysis, and interfaced with Google Maps to locate nearby clinic.",
+            "DocGPT is an AI-powered healthcare chatbot developed with Python and Streamlit. I integrated speech-to-text, image analysis, and interfaced with Google Maps to locate nearby clinics.",
         tags: ["Python", "LLMs", "Speech-to-text"],
     },
     {
@@ -142,7 +142,7 @@ export const workData: WorkInfo[] = [
         start_date: formatFromMMMYYYY("Jan 2023"),
         end_date: formatFromMMMYYYY("Dec 2024"),
         listDescription: [
-            "TA and marker for FIT2014 (Theory of Computation) and FIT1045 (Intro to Programming).",
+            "Taught in tutorial classes, marked assignments, and hosted private consultations for FIT2014 (Theory of Computation) and FIT1045 (Intro to Programming).",
         ],
     },
 ];

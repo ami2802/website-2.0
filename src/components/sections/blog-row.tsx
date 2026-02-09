@@ -32,7 +32,7 @@ export default function BlogRow({
     return (
         <Link
             href={post.url}
-            className="group block p-6 bg-card rounded-xl shadow-sm border border-border/50 transition-all hover:bg-slate-50 dark:hover:bg-slate-800/50 hover:border-slate-300 dark:hover:border-slate-700 hover:shadow-md flex flex-col gap-3"
+            className="group block p-6 transition-all hover:bg-interactive-hover flex flex-col gap-3 rounded-xl"
         >
             <div className="flex flex-col gap-1 w-full">
                 <div className="flex flex-row gap-4 justify-between items-start w-full">

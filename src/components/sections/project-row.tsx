@@ -19,7 +19,7 @@ export default function ProjectRow({
   return (
     <AccordionItem
       value={"project-" + idx.toString()}
-      className="bg-card rounded-xl shadow-sm border border-border/50 transition-all hover:bg-slate-50 dark:hover:bg-slate-800/50 hover:border-slate-300 dark:hover:border-slate-700 hover:shadow-md flex flex-col"
+      className="group transition-all hover:bg-interactive-hover flex flex-col rounded-xl"
     >
       <AccordionTrigger className="p-4 flex flex-row gap-4 items-center w-full text-start cursor-pointer hover:no-underline">
         {/* Image container */}
@@ -30,7 +30,7 @@ export default function ProjectRow({
                 <Image
                   src={projectInfo.projectLogoUrl}
                   alt="Company logo"
-                  className="rounded-lg shadow-lg shadow-slate-200 dark:shadow-black transition hover:scale-110 ease-in-out bg-rose-200 dark:bg-rose-950 object-cover"
+                  className="rounded-lg transition ease-in-out bg-rose-200 dark:bg-rose-950 object-cover"
                   fill
                   priority
                 />
@@ -50,7 +50,7 @@ export default function ProjectRow({
                   target="_blank"
                   rel="noreferrer noopener"
                   onClick={(e) => e.stopPropagation()}
-                  className="flex items-center justify-center p-1.5 bg-interactive rounded-lg text-muted-custom hover:bg-interactive-hover transition shrink-0"
+                  className="flex items-center justify-center p-1.5 rounded-lg hover:bg-interactive-hover transition shrink-0 hover:scale-105"
                   title="Read on Substack"
                 >
                   <SiSubstack className="w-3.5 h-3.5 text-[#FF6719]" />
@@ -62,7 +62,7 @@ export default function ProjectRow({
                   target="_blank"
                   rel="noreferrer noopener"
                   onClick={(e) => e.stopPropagation()}
-                  className="flex items-center justify-center p-1.5 bg-interactive rounded-lg text-muted-custom hover:bg-interactive-hover transition shrink-0"
+                  className="flex items-center justify-center p-1.5 rounded-lg hover:bg-interactive-hover transition shrink-0 hover:scale-105"
                   title="Watch on YouTube"
                 >
                   <FaYoutube className="w-4 h-4 text-[#FF0000]" />
@@ -74,7 +74,7 @@ export default function ProjectRow({
                   target="_blank"
                   rel="noreferrer noopener"
                   onClick={(e) => e.stopPropagation()}
-                  className="flex items-center justify-center p-1.5 bg-interactive rounded-lg text-muted-custom hover:bg-interactive-hover transition shrink-0"
+                  className="flex items-center justify-center p-1.5 rounded-lg hover:bg-interactive-hover transition shrink-0 hover:scale-105"
                   title="View Slides"
                 >
                   <SiGoogleslides className="w-4 h-4 text-[#F4B400]" />
@@ -86,7 +86,7 @@ export default function ProjectRow({
                   target="_blank"
                   rel="noreferrer noopener"
                   onClick={(e) => e.stopPropagation()}
-                  className="flex items-center justify-center p-1.5 bg-interactive rounded-lg text-muted-custom hover:bg-interactive-hover transition shrink-0"
+                  className="flex items-center justify-center p-1.5 rounded-lg text-title hover:bg-interactive-hover transition shrink-0 hover:scale-105"
                   title="View on GitHub"
                 >
                   <FaGithub className="w-4 h-4" />

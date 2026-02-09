@@ -47,8 +47,8 @@
   --aspect-4/5: 4/5;
 
   /* Animations */
-  --animate-accordion-down: accordion-down 0.3s ease-in-out;
-  --animate-accordion-up: accordion-up 0.3s ease-in-out;
+  --animate-accordion-down: accordion-down 0.5s ease-in-out;
+  --animate-accordion-up: accordion-up 0.5s ease-in-out;
   --animate-wiggle: wiggle 200ms ease-in-out;
   --animate-grid: grid 15s linear infinite;
 }
@@ -112,6 +112,10 @@
   animation-delay: 200ms;
 }
 
+@utility delay-500 {
+  animation-delay: 500ms;
+}
+
 /* Keyframes */
 @keyframes fade-in-up {
   from {
@@ -123,6 +127,22 @@
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+@keyframes swipe-in {
+  from {
+    clip-path: inset(0 100% 0 0);
+    opacity: 1;
+  }
+
+  to {
+    clip-path: inset(0 0 0 0);
+    opacity: 1;
+  }
+}
+
+@utility animate-swipe-in {
+  animation: swipe-in 1s ease-out forwards;
 }
 
 @keyframes accordion-down {
@@ -199,7 +219,7 @@
   --text-heading: #0f172a;
   /* slate-900 */
   /* Titles - card titles, section headers */
-  --text-title: #334155;
+  --text-title: #1e293b;
   /* slate-700 */
   /* Body - main content text */
   --text-body: #334155;
@@ -212,8 +232,8 @@
   /* Button/interactive element background */
   --bg-interactive: #f1f5f9;
   /* slate-100 */
-  --bg-interactive-hover: #e2e8f0;
-  /* slate-200 */
+  --bg-interactive-hover: #f1f5f9;
+  /* slate-100 */
   /* Border for interactive elements */
   --border-interactive: #e2e8f0;
   /* slate-200 */
@@ -255,8 +275,8 @@
   /* ========== UNIFIED INTERACTIVE BACKGROUNDS (DARK) ========== */
   --bg-interactive: #1e293b;
   /* slate-800 */
-  --bg-interactive-hover: #334155;
-  /* slate-700 */
+  --bg-interactive-hover: #1e293b;
+  /* slate-800 */
   --border-interactive: #334155;
   /* slate-700 */
   --border-interactive-hover: #475569;

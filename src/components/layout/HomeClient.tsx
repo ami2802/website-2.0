@@ -165,7 +165,7 @@ export default function HomeClient({ blogPosts }: HomeClientProps) {
                                     className="font-semibold text-rose-700 dark:text-rose-400 hover:underline transition-colors"
                                 >
                                     political articles
-                                </Link>, and founded a{" "}
+                                </Link>, and co-founded a{" "}
                                 <Link
                                     href="https://www.instagram.com/monashtennisclub/"
                                     target="_blank"

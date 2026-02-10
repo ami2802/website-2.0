@@ -30,14 +30,13 @@ export default function BlogRow({
     }
 
     return (
-        <Link
-            href={post.url}
-            className="group block p-6 transition-all hover:bg-interactive-hover flex flex-col gap-3 rounded-xl"
-        >
+        <div className="block p-4 flex flex-col gap-2 rounded-lg">
             <div className="flex flex-col gap-1 w-full">
                 <div className="flex flex-row gap-4 justify-between items-start w-full">
-                    <h3 className="text-title font-bold text-base sm:text-lg md:text-xl leading-snug tracking-tight text-left line-clamp-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-                        {post.title}
+                    <h3 className="text-title font-bold text-sm sm:text-base leading-snug tracking-tight text-left line-clamp-2">
+                        <Link href={post.url} className="hover:text-blue-400 transition-colors">
+                            {post.title}
+                        </Link>
                     </h3>
 
                 </div>
@@ -47,10 +46,10 @@ export default function BlogRow({
             </div>
 
             {post.description && (
-                <p className="text-body text-sm sm:text-base leading-relaxed line-clamp-2 text-left">
+                <p className="text-muted-custom text-sm leading-relaxed line-clamp-2 text-left">
                     {post.description}
                 </p>
             )}
-        </Link>
+        </div>
     );
 }

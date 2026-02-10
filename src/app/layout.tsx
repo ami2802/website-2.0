@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Noto_Serif } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "@/components/theme-provider";
-import { ModeToggle } from "@/components/ui/mode-toggle";
 import { Analytics } from "@vercel/analytics/react";
 
 const inter = Inter({
@@ -49,18 +47,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.variable} ${notoSerif.variable} font-sans antialiased`}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-          disableTransitionOnChange
-        >
-          <div className="fixed top-4 right-4 z-50">
-            <ModeToggle />
-          </div>
-          {children}
-          <Analytics />
-        </ThemeProvider>
+      <body className={`${inter.variable} ${notoSerif.variable} font-sans antialiased bg-background text-foreground`}>
+        {children}
+        <Analytics />
       </body>
     </html>
   );

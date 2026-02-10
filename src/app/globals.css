@@ -1,76 +1,107 @@
 @import "tailwindcss";
 
-/* Dark mode via class */
-@custom-variant dark (&:where(.dark, .dark *));
 
-/* ============================================
-   Theme Configuration (migrated from tailwind.config.ts)
-   ============================================ */
 
-@theme {
-  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
-  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+:root {
+  /* PRANAV RAMESH INSPIRED PALETTE (Single Dark Theme) */
+  --background: #0a0a0a;
+  /* Warm charcoal */
+  --foreground: #fafafa;
+  /* Bright white */
+
+  --card: #0a0a0a;
+  --card-foreground: #fafafa;
+
+  --popover: #0a0a0a;
+  --popover-foreground: #fafafa;
+
+  --primary: #fafafa;
+  --primary-foreground: #0a0a0a;
+
+  --secondary: #27272a;
+  --secondary-foreground: #fafafa;
+
+  --muted: #27272a;
+  --muted-foreground: #a1a1aa;
+
+  --accent: #27272a;
+  --accent-foreground: #fafafa;
+
+  --destructive: #7f1d1d;
+  --destructive-foreground: #fafafa;
+
+  --border: #27272a;
+  --input: #27272a;
+  --ring: #d4d4d8;
+
+  --radius: 0.5rem;
 
   /* Custom Colors */
-  --color-customGray: #060609;
-  --color-moretransparent: #07070955;
-  --color-semiopaque: #070709aa;
-  --color-midnight: #070709;
+  --text-heading: #fafafa;
+  --text-title: rgba(250, 250, 250, 0.9);
+  --text-body: rgba(250, 250, 250, 0.7);
+  --text-muted: rgba(250, 250, 250, 0.4);
 
-  /* Semantic Colors from CSS Variables */
-  --color-background: hsl(var(--background));
-  --color-foreground: hsl(var(--foreground));
-  --color-card: hsl(var(--card));
-  --color-card-foreground: hsl(var(--card-foreground));
-  --color-popover: hsl(var(--popover));
-  --color-popover-foreground: hsl(var(--popover-foreground));
-  --color-primary: hsl(var(--primary));
-  --color-primary-foreground: hsl(var(--primary-foreground));
-  --color-secondary: hsl(var(--secondary));
-  --color-secondary-foreground: hsl(var(--secondary-foreground));
-  --color-muted: hsl(var(--muted));
-  --color-muted-foreground: hsl(var(--muted-foreground));
-  --color-accent: hsl(var(--accent));
-  --color-accent-foreground: hsl(var(--accent-foreground));
-  --color-destructive: hsl(var(--destructive));
-  --color-destructive-foreground: hsl(var(--destructive-foreground));
-  --color-border: hsl(var(--border));
-  --color-input: hsl(var(--input));
-  --color-ring: hsl(var(--ring));
+  --bg-interactive: transparent;
+  --bg-interactive-hover: rgba(255, 255, 255, 0.05);
 
-  /* Border Radius */
-  --radius-lg: var(--radius);
-  --radius-md: calc(var(--radius) - 2px);
+  --border-interactive: rgba(255, 255, 255, 0.1);
+  --border-interactive-hover: rgba(255, 255, 255, 0.2);
+
+
+}
+
+@theme {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
   --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
 
-  /* Aspect Ratios */
-  --aspect-4/5: 4/5;
-
-  /* Animations */
   --animate-accordion-down: accordion-down 0.3s ease-in-out;
   --animate-accordion-up: accordion-up 0.3s ease-in-out;
   --animate-wiggle: wiggle 200ms ease-in-out;
   --animate-grid: grid 15s linear infinite;
+
+  /* Restored animations */
+  --animate-swipe-in: swipe-in 0.6s ease-out forwards;
+  --animate-fade-in-up: fade-in-up 1s ease-out forwards;
 }
 
-@utility animate-fade-in-up {
-  animation: fade-in-up 1s ease-out forwards;
+/* Base Styles */
+* {
+  border-color: var(--border);
 }
 
-.no-scrollbar::-webkit-scrollbar {
-  display: none;
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-.no-scrollbar {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-
-/* ============================================
-   Unified Text & Interactive Utilities
-   ============================================ */
-
-/* Text colors */
+/* Utilities */
 @utility text-heading {
   color: var(--text-heading);
 }
@@ -87,7 +118,6 @@
   color: var(--text-muted);
 }
 
-/* Interactive backgrounds */
 @utility bg-interactive {
   background-color: var(--bg-interactive);
 }
@@ -116,35 +146,16 @@
   animation-delay: 500ms;
 }
 
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
 /* Keyframes */
-@keyframes fade-in-up {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes swipe-in {
-  from {
-    clip-path: inset(0 100% 0 0);
-    opacity: 1;
-  }
-
-  to {
-    clip-path: inset(0 0 0 0);
-    opacity: 1;
-  }
-}
-
-@utility animate-swipe-in {
-  animation: swipe-in 1s ease-out forwards;
-}
-
 @keyframes accordion-down {
   from {
     height: 0;
@@ -167,10 +178,9 @@
 
 @keyframes wiggle {
 
-  25%,
-  75% {
+  0%,
+  100% {
     transform: rotate(-3deg);
-    scale: 110%;
   }
 
   50% {
@@ -188,116 +198,26 @@
   }
 }
 
-/* ============================================
-   CSS Variables for Light/Dark Mode
-   ============================================ */
+@keyframes swipe-in {
+  from {
+    clip-path: inset(0 100% 0 0);
+    opacity: 1;
+  }
 
-:root {
-  --background: 0 0% 100%;
-  --foreground: 222.2 84% 4.9%;
-  --card: 0 0% 100%;
-  --card-foreground: 222.2 84% 4.9%;
-  --popover: 0 0% 100%;
-  --popover-foreground: 222.2 84% 4.9%;
-  --primary: 222.2 47.4% 11.2%;
-  --primary-foreground: 210 40% 98%;
-  --secondary: 210 40% 96.1%;
-  --secondary-foreground: 222.2 47.4% 11.2%;
-  --muted: 210 40% 96.1%;
-  --muted-foreground: 215.4 16.3% 46.9%;
-  --accent: 210 40% 96.1%;
-  --accent-foreground: 222.2 47.4% 11.2%;
-  --destructive: 0 84.2% 60.2%;
-  --destructive-foreground: 210 40% 98%;
-  --border: 214.3 31.8% 91.4%;
-  --input: 214.3 31.8% 91.4%;
-  --ring: 222.2 84% 4.9%;
-  --radius: 0.5rem;
-
-  /* ========== UNIFIED TEXT COLORS ========== */
-  /* Headings - darkest, most prominent */
-  --text-heading: #0f172a;
-  /* slate-900 */
-  /* Titles - card titles, section headers */
-  --text-title: #1e293b;
-  /* slate-700 */
-  /* Body - main content text */
-  --text-body: #334155;
-  /* slate-700 */
-  /* Muted - secondary info, dates, captions */
-  --text-muted: #64748b;
-  /* slate-500 */
-
-  /* ========== UNIFIED INTERACTIVE BACKGROUNDS ========== */
-  /* Button/interactive element background */
-  --bg-interactive: #f1f5f9;
-  /* slate-100 */
-  --bg-interactive-hover: #f1f5f9;
-  /* slate-100 */
-  /* Border for interactive elements */
-  --border-interactive: #e2e8f0;
-  /* slate-200 */
-  --border-interactive-hover: #cbd5e1;
-  /* slate-300 */
+  to {
+    clip-path: inset(0 0 0 0);
+    opacity: 1;
+  }
 }
 
-.dark {
-  --background: 222.2 84% 4.9%;
-  --foreground: 210 40% 98%;
-  --card: 222.2 84% 4.9%;
-  --card-foreground: 210 40% 98%;
-  --popover: 222.2 84% 4.9%;
-  --popover-foreground: 210 40% 98%;
-  --primary: 210 40% 98%;
-  --primary-foreground: 222.2 47.4% 11.2%;
-  --secondary: 217.2 32.6% 17.5%;
-  --secondary-foreground: 210 40% 98%;
-  --muted: 217.2 32.6% 17.5%;
-  --muted-foreground: 215 20.2% 65.1%;
-  --accent: 217.2 32.6% 17.5%;
-  --accent-foreground: 210 40% 98%;
-  --destructive: 0 62.8% 30.6%;
-  --destructive-foreground: 210 40% 98%;
-  --border: 217.2 32.6% 17.5%;
-  --input: 217.2 32.6% 17.5%;
-  --ring: 212.7 26.8% 83.9%;
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
 
-  /* ========== UNIFIED TEXT COLORS (DARK) ========== */
-  --text-heading: #f1f5f9;
-  /* slate-100 */
-  --text-title: #e2e8f0;
-  /* slate-200 */
-  --text-body: #cbd5e1;
-  /* slate-300 */
-  --text-muted: #94a3b8;
-  /* slate-400 */
-
-  /* ========== UNIFIED INTERACTIVE BACKGROUNDS (DARK) ========== */
-  --bg-interactive: #1e293b;
-  /* slate-800 */
-  --bg-interactive-hover: #1e293b;
-  /* slate-800 */
-  --border-interactive: #334155;
-  /* slate-700 */
-  --border-interactive-hover: #475569;
-  /* slate-600 */
-}
-
-/* ============================================
-   Base Styles
-   ============================================ */
-
-* {
-  border-color: var(--color-border);
-}
-
-body {
-  background-color: var(--color-background);
-  color: var(--color-foreground);
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    background-color: rgb(1, 4, 9);
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

@@ -19,7 +19,7 @@ export const projectsData: ProjectInfo[] = [
     {
         projectName: "Ensemble Monitoring for Scalable Oversight",
         customLogo: (
-            <ShieldCheck className="text-red-600 dark:text-red-400 text-4xl w-full h-full p-2 bg-red-100 dark:bg-red-950 rounded-lg shadow-lg shadow-slate-200 dark:shadow-black transition hover:scale-110 ease-in-out" />
+            <ShieldCheck className="text-red-400 text-4xl w-full h-full p-2 bg-red-950 rounded-lg" />
         ),
         projectCaption:
             "Replicating and extending an ICML '24 paper on AI Controls",
@@ -32,20 +32,20 @@ export const projectsData: ProjectInfo[] = [
     {
         projectName: "Multimodal LLM with RAG for domain analysis",
         customLogo: (
-            <ScanEye className="text-orange-600 dark:text-orange-400 text-4xl w-full h-full p-2 bg-orange-100 dark:bg-orange-950 rounded-lg shadow-lg shadow-slate-200 dark:shadow-black transition hover:scale-110 ease-in-out" />
+            <ScanEye className="text-orange-400 text-4xl w-full h-full p-2 bg-orange-950 rounded-lg" />
         ),
         projectCaption:
-            "A multimodal, domain-specific LLM for visual question-answering",
+            "Final Year Project at Monash University",
         projectLink: "https://github.com/steaminghotomelette/mPLUG-Owl-RAG",
         slidesLink: "https://docs.google.com/presentation/d/18c8sIe5GDjXr2s8vCOjtXbL6Hjm8I63aMM3gYvaBRpc/edit?usp=sharing",
         description:
-            "We were among the top FYPs of our summer '24 cohort, supervised by Dr. Lim Chern Hong. The project involves a custom multimodal LLM built for VQA tasks in medical imaging and forensic videos. We fine-tuned an 8B vision-language model, combining it with RAG and COT to improve accuracy by 30% over baseline. I was in charge of architecting the RAG system, implemented using a vector database with a custom chunking algorithm and a hybrid retrieval mechanism.",
+            "We were among the top FYPs of our summer '24 cohort, supervised by Dr. Lim Chern Hong. The project involves an 8B model which we fine-tuned for VQA tasks in medical imaging and forensic videos. Combining RAG and COT techniques improved accuracy over baseline by ~30%. I was in charge of architecting the RAG system, implemented using a vector database with a custom chunking algorithm and a hybrid retrieval mechanism.",
         tags: ["PyTorch", "Computer Vision", "Langchain", "Transformers"],
     },
     {
         projectName: "RxNet",
         customLogo: (
-            <Pill className="text-yellow-600 dark:text-yellow-400 text-4xl w-full h-full p-2 bg-yellow-100 dark:bg-yellow-950 rounded-lg shadow-lg shadow-slate-200 dark:shadow-black transition hover:scale-110 ease-in-out" />
+            <Pill className="text-yellow-400 text-4xl w-full h-full p-2 bg-yellow-950 rounded-lg" />
         ),
         projectCaption: "Blockchain-powered prescription management tool",
         projectLink: "https://github.com/ami2802/RxNet",
@@ -57,7 +57,7 @@ export const projectsData: ProjectInfo[] = [
     {
         projectName: "DocGPT",
         customLogo: (
-            <Stethoscope className="text-green-600 dark:text-green-400 text-4xl w-full h-full p-2 bg-green-100 dark:bg-green-950 rounded-lg shadow-lg shadow-slate-200 dark:shadow-black transition hover:scale-110 ease-in-out" />
+            <Stethoscope className="text-green-400 text-4xl w-full h-full p-2 bg-green-950 rounded-lg" />
         ),
         projectCaption: "LLM healthcare chatbot",
         projectLink: "https://github.com/ami2802/DocGPT-2",
@@ -68,24 +68,24 @@ export const projectsData: ProjectInfo[] = [
     {
         projectName: "Ren",
         customLogo: (
-            <Recycle className="text-blue-600 dark:text-blue-400 text-4xl w-full h-full p-2 bg-blue-100 dark:bg-blue-950 rounded-lg shadow-lg shadow-slate-200 dark:shadow-black transition hover:scale-110 ease-in-out" />
+            <Recycle className="text-blue-400 text-4xl w-full h-full p-2 bg-blue-950 rounded-lg" />
         ),
-        projectCaption: "Volunteer cleaning app for public places",
+        projectCaption: "Community platform for environmental cleanup initiatives",
         projectLink: "https://github.com/Ren-Kitahack-2024/Ren",
         description:
-            "Ren is a volunteer cleaning app created for Kitahack 2024 (Google Solution Challenge), where we were in the top 10. This was inspired by growing environmental issues in society. The app encourages users to take part in local cleanup efforts and tracks their progress to mitigate pollution and reduce climate-related risks.",
-        tags: ["Flutter"],
+            "Ren is a volunteer cleaning app created for Kitahack 2024 (Google Solution Challenge), where we were top 10 finalists. The app encourages users to take part in local cleanup efforts and tracks their progress to mitigate pollution and reduce climate-related risks.",
+        tags: ["Flutter", "Dart", "Firebase"],
     },
     {
         projectName: "Vital Vision",
         customLogo: (
-            <HeartPulse className="text-purple-600 dark:text-purple-400 text-4xl w-full h-full p-2 bg-purple-100 dark:bg-purple-950 rounded-lg shadow-lg shadow-slate-200 dark:shadow-black transition hover:scale-110 ease-in-out" />
+            <HeartPulse className="text-purple-400 text-4xl w-full h-full p-2 bg-purple-950 rounded-lg" />
         ),
         projectCaption: "Heart rate detection app using PPG image processing",
         projectLink: "https://github.com/faw01/vital-vision",
         description:
             "Vital Vision is a health-focused smartphone app developed for Kitahack 2023 (Google Solution Challenge) that uses photoplethysmography to detect the user's heart rate without requiring special equipment.",
-        tags: ["Flutter"],
+        tags: ["Flutter", "Dart"],
     },
 ];
 

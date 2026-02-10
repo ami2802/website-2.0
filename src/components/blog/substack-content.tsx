@@ -56,7 +56,7 @@ export function SubstackContent({ content }: SubstackContentProps) {
           href={node.attribs.href}
           target="_blank"
           rel="noopener noreferrer"
-          className="font-medium text-inherit underline underline-offset-4 decoration-slate-300 dark:decoration-slate-700 hover:decoration-slate-500 dark:hover:decoration-slate-400 transition-colors cursor-pointer"
+          className="font-medium text-inherit underline underline-offset-4 decoration-slate-700 hover:decoration-slate-400 transition-colors cursor-pointer"
         >
           {domToReact(node.children as DOMNode[], { replace: transform })}
         </a>
@@ -77,7 +77,7 @@ export function SubstackContent({ content }: SubstackContentProps) {
         return null;
 
       return (
-        <p className="mb-3 leading-8 text-lg/8 text-foreground/80">
+        <p className="mb-4 leading-7 text-base md:text-lg text-foreground/80">
           {domToReact(node.children as DOMNode[], { replace: transform })}
         </p>
       );
@@ -86,14 +86,14 @@ export function SubstackContent({ content }: SubstackContentProps) {
     // 4. Handle Lists
     if (node.tagName === "ul") {
       return (
-        <ul className="list-disc list-outside ml-6 mb-3 space-y-1 text-lg/8 text-foreground/80">
+        <ul className="list-disc list-outside ml-6 mb-4 space-y-1 text-base md:text-lg leading-7 text-foreground/80">
           {domToReact(node.children as DOMNode[], { replace: transform })}
         </ul>
       );
     }
     if (node.tagName === "ol") {
       return (
-        <ol className="list-decimal list-outside ml-6 mb-3 space-y-1 text-lg/8 text-foreground/80">
+        <ol className="list-decimal list-outside ml-6 mb-4 space-y-1 text-base md:text-lg leading-7 text-foreground/80">
           {domToReact(node.children as DOMNode[], { replace: transform })}
         </ol>
       );
@@ -128,7 +128,7 @@ export function SubstackContent({ content }: SubstackContentProps) {
     // 6. Handle Blockquotes
     if (node.tagName === "blockquote") {
       return (
-        <blockquote className="border-l-4 border-slate-300 dark:border-slate-700 pl-6 italic text-muted-foreground my-8 py-2 bg-slate-50 dark:bg-slate-900/50 rounded-r-lg">
+        <blockquote className="border-l-4 border-slate-700 pl-6 italic text-muted-foreground my-8 py-2 bg-slate-900/50 rounded-r-lg">
           {domToReact(node.children as DOMNode[], { replace: transform })}
         </blockquote>
       );
@@ -168,7 +168,7 @@ export function SubstackContent({ content }: SubstackContentProps) {
     // 9. Handle Code Blocks
     if (node.tagName === "pre") {
       return (
-        <pre className="bg-slate-900 dark:bg-slate-950 text-slate-50 p-6 rounded-xl overflow-x-auto my-8 border border-slate-800">
+        <pre className="bg-slate-950 text-slate-50 p-6 rounded-xl overflow-x-auto my-8 border border-slate-800">
           {domToReact(node.children as DOMNode[], { replace: transform })}
         </pre>
       );

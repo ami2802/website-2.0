@@ -30,7 +30,7 @@ export default function WorkRow({
   return (
     <AccordionItem
       value={"work-" + idx.toString()}
-      className="group transition-all hover:bg-interactive-hover flex flex-col rounded-xl"
+      className="group transition-all hover:bg-interactive-hover hover:backdrop-blur-sm flex flex-col rounded-lg"
     >
       <AccordionTrigger className="p-4 flex flex-row gap-4 items-center w-full text-start cursor-pointer hover:no-underline">
         {/* Image container */}
@@ -46,7 +46,7 @@ export default function WorkRow({
         {/* Company info */}
         <div className="flex flex-col w-full">
           <div className="flex flex-row gap-4 justify-between items-baseline w-full">
-            <div className="text-title font-semibold text-sm sm:text-lg">
+            <div className="text-title font-semibold text-sm sm:text-base">
               {workInfo.role}
             </div>
             {workInfo.start_date && (
@@ -56,7 +56,7 @@ export default function WorkRow({
             )}
           </div>
           <div className="flex flex-row gap-4 justify-between items-baseline w-full">
-            <div className="text-muted-custom text-sm sm:text-base">
+            <div className="text-muted-custom text-sm">
               {workInfo.companyName}
             </div>
             {workInfo.start_date && (
@@ -65,16 +65,16 @@ export default function WorkRow({
               </div>
             )}
           </div>
+          {workInfo.start_date && (
+            <div className="sm:hidden text-muted-custom text-xs">
+              {formatWorkPeriod(workInfo.start_date, workInfo.end_date)}
+            </div>
+          )}
         </div>
       </AccordionTrigger>
       {(workInfo.description || workInfo.listDescription || workInfo.tags) && (
         <AccordionContent className="text-body px-4 pb-4">
-          {workInfo.start_date && (
-            <div className="sm:hidden flex flex-row justify-between mb-4 text-xs font-medium text-muted-custom border-b border-border/20 pb-2 italic">
-              <div>{formatWorkPeriod(workInfo.start_date, workInfo.end_date)}</div>
-              <div>{duration}</div>
-            </div>
-          )}
+
           <div>{workInfo.description}</div>
           {workInfo.listDescription && (
             <ul className="list-disc pl-8">
@@ -84,11 +84,11 @@ export default function WorkRow({
             </ul>
           )}
           {workInfo.tags && (
-            <div className="flex flex-row gap-2 flex-wrap mt-4">
+            <div className="flex flex-row gap-2 flex-wrap mt-2">
               {workInfo.tags.map((tag, idx) => (
                 <div
                   key={idx}
-                  className="px-2 py-1 rounded-lg bg-interactive text-xs transition ease-in-out hover:scale-110 font-semibold text-muted-custom"
+                  className="px-2 py-1 rounded-lg bg-interactive text-xs font-semibold text-muted-custom"
                 >
                   {tag}
                 </div>

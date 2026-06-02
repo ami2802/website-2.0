@@ -97,7 +97,7 @@ export const workData: WorkInfo[] = [
         companyLogoUrl: DellLogo,
         start_date: formatFromMMMYYYY("Jun 2026"),
         listDescription: [
-            "DevOps and AgentOps for Dell's private cloud",
+            "DevOps and AgentOps for Dell's private cloud.",
         ],
         tags: [],
     },

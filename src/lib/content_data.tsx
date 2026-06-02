@@ -13,7 +13,8 @@ import { formatFromMMMYYYY } from "@/lib/utils";
 import WesternDigitalLogo from "@/assets/western-digital.png";
 import WaveletLogo from "@/assets/wavelet.jpeg";
 import MonashLogo from "@/assets/monash.webp";
-import TransPerfectLogo from "@/assets/transperfect.jpeg";
+import AppleLogo from "@/assets/apple.jpg";
+import DellLogo from "@/assets/dell.jpeg";
 
 export const projectsData: ProjectInfo[] = [
     {
@@ -35,7 +36,7 @@ export const projectsData: ProjectInfo[] = [
             <ScanEye className="text-orange-400 text-4xl w-full h-full p-2 bg-orange-950 rounded-lg" />
         ),
         projectCaption:
-            "Final Year Project at Monash University",
+            "Final Year Project for my Bachelor's degree",
         projectLink: "https://github.com/steaminghotomelette/mPLUG-Owl-RAG",
         slidesLink: "https://docs.google.com/presentation/d/18c8sIe5GDjXr2s8vCOjtXbL6Hjm8I63aMM3gYvaBRpc/edit?usp=sharing",
         description:
@@ -91,21 +92,29 @@ export const projectsData: ProjectInfo[] = [
 
 export const workData: WorkInfo[] = [
     {
-        role: "Machine Learning Engineer",
-        companyName: "TransPerfect",
-        companyLogoUrl: TransPerfectLogo,
-        start_date: formatFromMMMYYYY("Apr 2025"),
+        role: "Software Engineer",
+        companyName: "Dell Technologies",
+        companyLogoUrl: DellLogo,
+        start_date: formatFromMMMYYYY("Jun 2026"),
         listDescription: [
-            "Improved on-device NLU, ASR, TTS in Malay for a big tech voice assistant.",
-            "Fine-tuned transformer-based models and resolved 300+ intent detection bugs.",
-            "Shipped 50+ localized features by implementing new logic, triaging bugs, and validating integration tests.",
-            "Constructed high-quality datasets for low resource languages (Malay, Indonesian) for several domains.",
-            "Designed and implemented rule-based filtering heuristics that reduced overall dataset noise by 23%.",
-            "Deployed and monitored fine-tuned models in a live environment to diagnose failures.",
-            "Built tooling to automate end-to-end testing, reducing manual QA effort by 80%.",
-            "Refactored an internal data labelling tool to use multithreading, leading to a 5x speedup.",
+            "DevOps and AgentOps for Dell's private cloud",
         ],
-        tags: ["PyTorch", "Ray", "Kubernetes", "Python", "Swift", "C++"],
+        tags: [],
+    },
+    {
+        role: "Machine Learning Engineer",
+        companyName: "Apple (via TransPerfect)",
+        companyLogoUrl: AppleLogo,
+        start_date: formatFromMMMYYYY("Apr 2025"),
+        end_date: formatFromMMMYYYY("May 2026"),
+        listDescription: [
+            "Delivered 300+ bugfixes and new features to enhance Malay Siri's intent detection, speech recognition, text-to-speech, and predictive keyboard.",
+            "Built synthetically generated datasets in low-resource languages in collaboration with data curators.",
+            "Implemented regex-based filtering heuristics to reduce dataset noise, improving model accuracy by 23%.",
+            "Developed an end-to-end testing tool, reducing manual QA effort by 80%.",
+            "Refactored an internal data labelling tool with multithreading to achieve a 5x speedup.",
+        ],
+        tags: ["Python", "Swift", "C++"],
     },
     {
         role: "Software Engineer Intern",
@@ -120,7 +129,7 @@ export const workData: WorkInfo[] = [
             "Developed and deployed a UI module for 10+ applets, adopted by thousands of enterprise users.",
             "Refactored a mobile app to improve performance and cut page loading times by 30%.",
         ],
-        tags: ["SQL", "AWS", "Java", "Angular", "ETL", "Flutter"],
+        tags: ["SQL", "AWS", "Java", "Angular", "Flutter"],
     },
     {
         role: "Embedded Software Engineer Intern",
@@ -131,9 +140,9 @@ export const workData: WorkInfo[] = [
         listDescription: [
             "Engineered firmware features and failure analysis scripts for enterprise HDDs.",
             "Reduced the host interface team's bug backlog by 21%.",
-            "Optimized Jenkins CI/CD pipelines by improving retry logic, reducing false positive build failures.",
+            "Optimized CI/CD pipelines by improving retry logic, reducing false positive build failures.",
         ],
-        tags: ["C/C++", "Python", "Jenkins", "CI/CD"],
+        tags: ["C/C++", "Python", "Jenkins"],
     },
     {
         role: "Teaching Assistant",

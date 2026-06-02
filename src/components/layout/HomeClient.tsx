@@ -4,7 +4,6 @@ import * as React from "react";
 import { FaGithub, FaLinkedinIn } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { FiArrowUpRight, FiChevronDown, FiChevronUp } from "react-icons/fi";
-import bgImage from "@/assets/background.jpg";
 import personalPhoto from "@/assets/me.png";
 import Link from "next/link";
 import Image from "next/image";
@@ -76,17 +75,6 @@ export default function HomeClient({ blogPosts }: HomeClientProps) {
 
     return (
         <main className="min-h-screen bg-background">
-            {/* Background Image */}
-            <div className="fixed inset-0 z-0 pointer-events-none opacity-[0.08]">
-                <Image
-                    src={bgImage}
-                    alt="Background pattern"
-                    fill
-                    className="object-cover object-center"
-                    priority
-                />
-            </div>
-
             <div className="relative z-10 max-w-4xl mx-auto px-6 py-16 md:py-24">
                 {/* Hero Section */}
                 <section className="flex flex-col-reverse md:flex-row items-center md:items-center justify-between gap-4 md:gap-8 mb-4">
@@ -96,7 +84,7 @@ export default function HomeClient({ blogPosts }: HomeClientProps) {
                             Amirul Azizol
                         </h1>
                         <h2 className="hidden md:block font-light text-base md:text-xl text-muted-custom tracking-tight text-left animate-swipe-in delay-500 opacity-0">
-                            Machine Learning Engineer
+                            Software Engineer
                         </h2>
 
                         {/* Social Links */}
@@ -115,22 +103,14 @@ export default function HomeClient({ blogPosts }: HomeClientProps) {
 
                         {/* About Summary */}
                         <p className="text-sm md:text-lg text-body leading-relaxed text-left md:pr-6 mb-0">
-                            I'm a {new Date().getFullYear() - 2003 - (new Date() < new Date(new Date().getFullYear(), 1, 28) ? 1 : 0)}-year-old engineer building AI for 500M+ users at{" "}
+                            I am {new Date().getFullYear() - 2003 - (new Date() < new Date(new Date().getFullYear(), 1, 28) ? 1 : 0)} years old, based in Singapore, building AI infrastructure at{" "}
                             <Link
-                                href="https://www.transperfect.com/industries/technology"
+                                href="https://www.dell.com/en-sg/shop/private-cloud-and-hci-solutions/sc/private-cloud-solutions"
                                 target="_blank"
                                 className="font-medium text-[#d1e2ff] hover:underline transition-colors"
                             >
-                                TransPerfect
-                            </Link>. I recently graduated from{" "}
-                            <Link
-                                href="https://www.monash.edu/it"
-                                target="_blank"
-                                className="font-medium text-[#d1e2ff] hover:underline transition-colors"
-                            >
-                                Monash University
-                            </Link>{" "}
-                            in 2025 with a degree in Computer Science.
+                                Dell Technologies
+                            </Link>. Previously @ Apple, Western Digital, Monash University.
                         </p>
                     </div>
 
@@ -152,7 +132,7 @@ export default function HomeClient({ blogPosts }: HomeClientProps) {
                                     Amirul Azizol
                                 </h1>
                                 <h2 className="font-light text-sm text-slate-300 tracking-tight text-left">
-                                    Machine Learning Engineer
+                                    Software Engineer
                                 </h2>
                             </div>
                         </div>
@@ -169,8 +149,8 @@ export default function HomeClient({ blogPosts }: HomeClientProps) {
                     <div className={`overflow-hidden min-h-0 ${isAboutExpanded ? "-m-1 p-1" : "m-0 p-0"}`}>
                         <div className="space-y-4 px-4">
                             <p className="text-sm md:text-lg text-body leading-relaxed">
-                                Before university, I grew up in England, Saudi Arabia, and Malaysia.
-                                Being a{" "}
+                                My experiences growing up in England, Saudi Arabia, and Malaysia as
+                                a{" "}
                                 <Link
                                     href="https://en.wikipedia.org/wiki/Third_culture_kid"
                                     target="_blank"
@@ -178,7 +158,7 @@ export default function HomeClient({ blogPosts }: HomeClientProps) {
                                 >
                                     third-culture kid
                                 </Link>{" "}
-                                has given me a global perspective, even though it means never quite having a home.
+                                has given me a global perspective. It also means never having a real home.
                                 My philosophy is strongly rooted in{" "}
                                 <Link
                                     href="https://classics.mit.edu/Aristotle/nicomachaen.2.ii.html"
@@ -190,8 +170,8 @@ export default function HomeClient({ blogPosts }: HomeClientProps) {
                                 , so I want to do as much as I can with my life.
                             </p>
                             <p className="text-sm md:text-lg text-body leading-relaxed">
-                                At Monash, I earned the HAA scholarship (top 1%) and was one of seven recipients of the 2024 IBL scholarship.
-                                But I learned just as much outside the classroom. Aside from hackathons and competitive programming,
+                                In university, I worked hard academically and received two scholarships.
+                                But I learned just as much outside the classroom. Outside of winning hackathons and competitive programming competitions,
                                 I casted esports matches, wrote{" "}
                                 <Link
                                     href="https://monpacmum.wordpress.com/2024/09/15/world-war-ii-the-catalyst-for-malaysian-independence/"
@@ -271,19 +251,21 @@ export default function HomeClient({ blogPosts }: HomeClientProps) {
                 </section>
 
                 {/* Blog Section */}
-                {blogPosts.length > 0 && (
-                    <section id="blog" className="mb-20">
-                        <h2 className="font-[family-name:var(--font-noto)] text-2xl md:text-3xl font-medium text-title mb-8 px-4">
-                            Blog
-                        </h2>
-                        <div className="flex flex-col">
-                            {blogPosts.map((post, idx) => (
-                                <BlogRow key={idx} post={post} idx={idx} />
-                            ))}
-                        </div>
-                    </section>
-                )}
-            </div>
-        </main>
+                {
+                    blogPosts.length > 0 && (
+                        <section id="blog" className="mb-20">
+                            <h2 className="font-[family-name:var(--font-noto)] text-2xl md:text-3xl font-medium text-title mb-8 px-4">
+                                Blog
+                            </h2>
+                            <div className="flex flex-col">
+                                {blogPosts.map((post, idx) => (
+                                    <BlogRow key={idx} post={post} idx={idx} />
+                                ))}
+                            </div>
+                        </section>
+                    )
+                }
+            </div >
+        </main >
     );
 }

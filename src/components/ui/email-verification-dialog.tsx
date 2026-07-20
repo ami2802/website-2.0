@@ -45,6 +45,7 @@ export function EmailVerificationDialog({ buttonStyle }: EmailVerificationDialog
                 </button>
             </DialogTrigger>
             <DialogContent className="sm:max-w-md">
+                <DialogTitle className="sr-only">Email Verification</DialogTitle>
                 <div className="flex flex-col items-center justify-center py-6 min-h-[120px]">
                     {!verified ? (
                         <Turnstile

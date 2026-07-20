@@ -21,7 +21,7 @@ interface EmailVerificationDialogProps {
 export function EmailVerificationDialog({ buttonStyle }: EmailVerificationDialogProps) {
     const [verified, setVerified] = useState(false);
     const [copied, setCopied] = useState(false);
-    const emailBase64 = "YW1pcnVsYXppenolMkVkZXYlNDBnbWFpbCUyRWNvbQ==";
+    const emailBase64 = "YW1pcnVsYXppem9sJTJFZGV2JTQwZ21haWwlMkVjb20=";
 
     const handleSuccess = () => {
         setVerified(true);

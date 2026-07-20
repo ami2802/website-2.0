@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import { FaGithub, FaLinkedinIn } from "react-icons/fa";
-import { MdEmail } from "react-icons/md";
+import { EmailVerificationDialog } from "@/components/ui/email-verification-dialog";
 import { FiArrowUpRight, FiChevronDown, FiChevronUp } from "react-icons/fi";
 import personalPhoto from "@/assets/me.png";
 import Link from "next/link";
@@ -67,10 +67,6 @@ export default function HomeClient({ blogPosts }: HomeClientProps) {
             glyph: <FaGithub className={socialButtonStyle} />,
             link: "https://github.com/ami2802",
         },
-        {
-            glyph: <MdEmail className={socialButtonStyle} />,
-            link: "mailto:amirulazizol.dev@gmail.com",
-        },
     ];
 
     return (
@@ -99,6 +95,7 @@ export default function HomeClient({ blogPosts }: HomeClientProps) {
                                     {social.glyph}
                                 </Link>
                             ))}
+                            <EmailVerificationDialog buttonStyle={socialButtonStyle} />
                         </div>
 
                         {/* About Summary */}

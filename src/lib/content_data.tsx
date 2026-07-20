@@ -97,9 +97,10 @@ export const workData: WorkInfo[] = [
         companyLogoUrl: DellLogo,
         start_date: formatFromMMMYYYY("Jun 2026"),
         listDescription: [
-            "DevOps and AgentOps for Dell's private cloud.",
+            "Automated DevOps and LabOps workflows with AI skills, accelerating Dell Private Cloud ticket resolution.",
+            "Developed budget and rate-limiting modules for an internal AI model router used throughout the company.",
         ],
-        tags: [],
+        tags: ["Go"],
     },
     {
         role: "Machine Learning Engineer",

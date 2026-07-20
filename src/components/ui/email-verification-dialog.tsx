@@ -48,7 +48,7 @@ export function EmailVerificationDialog({ buttonStyle }: EmailVerificationDialog
                 <div className="flex flex-col items-center justify-center py-6 min-h-[120px]">
                     {!verified ? (
                         <Turnstile
-                            siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || "0x4AAAAAAD53wgzdyGm9scj_"}
+                            siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY!}
                             onSuccess={handleSuccess}
                         />
                     ) : (
